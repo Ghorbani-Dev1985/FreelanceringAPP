@@ -91,36 +91,6 @@
   body {          
     @apply text-zinc-700 dark:text-white bg-gray-50 dark:bg-gray-900 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
   }
-  input {
-    height: 3rem;
-    width: 100%;
-    border-radius: 0.75rem;
-    border-width: 1px;
-    background-color: rgb(243 244 246);
-    padding-left: 0.75rem;
-    outline: none;
-    padding-right: 0.75rem;
-    font-family: 'Dana';
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-}
-input + svg {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  margin-top: auto;
-  margin-bottom: auto;
-  height: 1rem;
-  width: 1rem;
-  color: rgb(100 116 139 );
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
 label{
   display: block;
 }
@@ -131,6 +101,18 @@ label{
   .dir-ltr{
     direction: ltr;
     text-align: left;
+  }
+  .textField-input {
+    @apply w-full px-4 py-3 rounded-lg text-secondary-900 outline-none border border-gray-100 bg-gray-100 hover:border-primary-500 focus:border-primary-500 transition-all duration-300 ease-in-out focus:shadow-lg focus:shadow-primary-200
+  }
+  .btn{
+    @apply px-3 py-1 font-DanaBold rounded-lg transition-all duration-300 ease-in-out
+  }
+  .btn-primary{
+    @apply px-4 py-2 bg-primary-900 text-secondary-50 hover:bg-primary-800 shadow-lg shadow-primary-300
+  }
+  .btn-secondary{
+    @apply px-4 py-2 bg-secondary-600 text-secondary-50 hover:bg-secondary-500 shadow-lg shadow-primary-300
   }
   .button-md {
     height: 2.5rem;
