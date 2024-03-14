@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
+import TextField from '../../UI/TextField'
 
 const SendOPTForm = () => {
     const [phoneNumber , setPhoneNumber] = useState('')
   return (
     <div>
         <form className='w-full space-y-8'>
-            <div >
-                <label htmlFor='PhoneNumber' className='mb-1'>شماره موبایل</label>
-                <input value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} id='PhoneNumber' placeholder='شماره موبایل' type='text' className='textField-input' />
-            </div>
+            <TextField label="شماره موبایل" name="PhoneNumber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="شماره موبایل خود را وارد نمایید"/>
             <button className='btn btn-primary w-full'>ارسال کد تایید</button>
         </form>
     </div>
