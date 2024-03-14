@@ -1,8 +1,8 @@
 
 import { Toaster } from 'react-hot-toast'
-import Index from './Components/index'
 import { Route, Routes } from 'react-router-dom'
-import Auth from './Features/Authentication/Authentication'
+import Auth from './Pages/Auth/Auth'
+
 
 
 function App() {
@@ -10,10 +10,11 @@ function App() {
   return (
     <>
      <Toaster />
-         <Index />
+         <main className='container xl:max-w-screen-xl'>
          <Routes>
           <Route path='/auth' element={<Auth />} />
          </Routes>
+         </main>
     </>
   )
 }

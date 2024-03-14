@@ -89,21 +89,20 @@
     @apply p-0 m-0 box-border;
   }
   body {          
-    @apply text-white bg-gray-50 dark:bg-gray-900 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
+    @apply text-zinc-700 dark:text-white bg-gray-50 dark:bg-gray-900 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
   }
   input {
     height: 3rem;
     width: 100%;
     border-radius: 0.75rem;
     border-width: 1px;
-    border-color: transparent;
     background-color: rgb(243 244 246);
     padding-left: 0.75rem;
+    outline: none;
     padding-right: 0.75rem;
     font-family: 'Dana';
     font-size: 0.875rem;
     line-height: 1.25rem;
-    color: rgb(63 63 70);
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
@@ -122,7 +121,9 @@ input + svg {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-
+label{
+  display: block;
+}
 }
 
 @layer components {

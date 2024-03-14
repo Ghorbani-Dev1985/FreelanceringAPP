@@ -1,8 +1,11 @@
 import React from 'react'
+import SendOPTForm from '../../Features/Authentication/SendOPTForm'
 
 const Auth = () => {
   return (
-    <div>Auth</div>
+    <section className='w-full max-w-sm'>
+      <SendOPTForm />
+    </section>
   )
 }
 
