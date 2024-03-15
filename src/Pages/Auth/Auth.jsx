@@ -7,7 +7,7 @@ const Auth = () => {
       <section className='flex-center h-screen'>
     <div className='w-full max-w-sm border p-6 rounded-lg'>
       <SendOPTForm />
-      <CheckOTPForm />
+      {/* <CheckOTPForm /> */}
     </div>
       </section>
   )
