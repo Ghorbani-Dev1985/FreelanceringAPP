@@ -139,13 +139,6 @@
   font-size: 1.5rem;
   line-height: 2rem;
 }
-.button-primary{
-  @apply bg-primary text-wrap text-white hover:bg-green-500 transition-colors
-}
-.button-secondary{
-  background-color: #0EA5E9;
-  color: #fff;
-}
 .button-gray{
   @apply bg-gray-200 text-zinc-700 dark:bg-gray-700 dark:text-white
 }
