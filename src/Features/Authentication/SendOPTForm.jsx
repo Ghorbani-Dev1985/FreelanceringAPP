@@ -4,9 +4,9 @@ import { useMutation } from '@tanstack/react-query'
 import { GetOtp } from '../../Services/AuthService'
 import toast from 'react-hot-toast'
 import Logo from "./../../Assets/Images/Logo/logo.png"
-const SendOPTForm = () => {
+import Loading from '../../UI/Loading'
+const SendOPTForm = ({setStep}) => {
     const [phoneNumber , setPhoneNumber] = useState('')
-    
   const {isPending, error, data, mutateAsync} = useMutation({
       mutationFn: GetOtp,
     })
@@ -26,7 +26,10 @@ const SendOPTForm = () => {
        <h2 className='font-DanaBold mb-4'>ورود | ثبت نام</h2>
         <form className='w-full space-y-11' onSubmit={SendOtpHandler}>
             <TextField label="شماره موبایل" name="PhoneNumber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="شماره موبایل خود را وارد نمایید"/>
-            <button type='submit' className='btn btn-primary w-full'>ارسال کد تایید</button>
+            {
+              isPending ? <Loading /> :
+              <button type='submit' className='btn btn-primary w-full'>ارسال کد تایید</button>
+            }
         </form>
     </>
   )

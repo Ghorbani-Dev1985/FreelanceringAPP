@@ -7,7 +7,7 @@ const AuthContainer = () => {
     const RenderStep = () => {
         switch (step) {
             case 1:
-                return <SendOTPForm />
+                return <SendOTPForm setStep={setStep}/>
             case 2:
                 return <CheckOTPForm />       
             default:
