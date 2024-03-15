@@ -12,10 +12,10 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
          <Toaster />
-         <main className='container xl:max-w-screen-xl'>
          <Routes>
           <Route path='/auth' element={<Auth />} />
          </Routes>
+         <main className='container xl:max-w-screen-xl'>
          </main>
       </QueryClientProvider>
     </>
