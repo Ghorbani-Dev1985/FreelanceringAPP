@@ -2,15 +2,33 @@ import React, { useState } from 'react'
 import SendOTPForm from './SendOPTForm'
 import CheckOTPForm from './CheckOTPForm'
 import CenterLogin from './../../Assets/Images/Login/centerLogin.png'
+import toast from 'react-hot-toast'
+import { useMutation } from '@tanstack/react-query'
+import { GetOtp } from '../../Services/AuthService'
+
+
 const AuthContainer = () => {
     const [step , setStep] = useState(2)
     const [phoneNumber , setPhoneNumber] = useState('')
+    const {isPending : isPendingOtp, error, data, mutateAsync} = useMutation({
+        mutationFn: GetOtp,
+      })
+      const SendOtpHandler = async (event) => {
+        event.preventDefault()
+        try {
+        const data = await mutateAsync({phoneNumber})
+        setStep(2)
+        toast.success(data.message)
+        } catch (error) {
+          toast.error(error?.response?.message)
+        }
+      }
     const RenderStep = () => {
         switch (step) {
             case 1:
-                return <SendOTPForm setStep={setStep} phoneNumber={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                return <SendOTPForm phoneNumber={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} SendOtpHandler={SendOtpHandler} isPendingOtp={isPendingOtp}/>
             case 2:
-                return <CheckOTPForm phoneNumber={phoneNumber} OnBackHandler={() => setStep((prev) => prev - 1)}/>       
+                return <CheckOTPForm phoneNumber={phoneNumber} OnBackHandler={() => setStep((prev) => prev - 1)} ResendOtpHandler={SendOtpHandler} />       
             default:
                 break;
         }
