@@ -10,7 +10,7 @@ const AuthContainer = () => {
             case 1:
                 return <SendOTPForm setStep={setStep} phoneNumber={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
             case 2:
-                return <CheckOTPForm phoneNumber={phoneNumber}/>       
+                return <CheckOTPForm phoneNumber={phoneNumber} OnBackHandler={() => setStep((prev) => prev - 1)}/>       
             default:
                 break;
         }

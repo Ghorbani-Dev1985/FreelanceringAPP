@@ -4,8 +4,9 @@ import OTPInput from 'react-otp-input'
 import { CheckOtp } from '../../Services/AuthService'
 import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+import { HiChevronRight } from "react-icons/hi"
 
-const CheckOTPForm = ({phoneNumber}) => {
+const CheckOTPForm = ({phoneNumber , OnBackHandler}) => {
   const [otp , setOtp] = useState(232613)
   const navigate = useNavigate()
   const {isPending , error , data , mutateAsync} = useMutation({
@@ -28,13 +29,14 @@ const CheckOTPForm = ({phoneNumber}) => {
     }
   }
   return (
-    <div>
+    <>
+      <button onClick={OnBackHandler}><HiChevronRight className='size-6 text-secondary-500'/></button>
       <form onSubmit={CheckOtpHandler}>
         <p className='font-MorabbaBold text-secondary-800 text-2xl my-5'>کد تایید را وارد نمایید</p>
         <OTPInput value={otp} onChange={setOtp} numInputs={6} renderInput={(props) => <input type='number' className='appearance-none' {...props} />} renderSeparator={<span> - </span>} containerStyle="flex flex-row-reverse justify-center mb-7" inputStyle={{width: '2.5rem', padding: "0.5rem", borderRadius: ".5rem" , margin: "0 .3rem" , border: "1px solid rgb(var(--color-primary-300))" , outline: "none"}}/>
         <button className='btn btn-primary w-full'>تایید</button>
       </form>
-    </div>
+    </>
   )
 }
 
