@@ -5,5 +5,5 @@ export function GetOtp(data){
 }
 
 export function CheckOtp(data){
-    return Http.post("/user/check-otp" , data)
+    return Http.post("/user/check-otp" , data).then(({data}) => data.data)
 }

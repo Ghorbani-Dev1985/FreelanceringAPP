@@ -3,13 +3,14 @@ import SendOTPForm from './SendOPTForm'
 import CheckOTPForm from './CheckOTPForm'
 import CenterLogin from './../../Assets/Images/Login/centerLogin.png'
 const AuthContainer = () => {
-    const [step , setStep] = useState(1)
+    const [step , setStep] = useState(2)
+    const [phoneNumber , setPhoneNumber] = useState('')
     const RenderStep = () => {
         switch (step) {
             case 1:
-                return <SendOTPForm setStep={setStep}/>
+                return <SendOTPForm setStep={setStep} phoneNumber={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
             case 2:
-                return <CheckOTPForm />       
+                return <CheckOTPForm phoneNumber={phoneNumber}/>       
             default:
                 break;
         }

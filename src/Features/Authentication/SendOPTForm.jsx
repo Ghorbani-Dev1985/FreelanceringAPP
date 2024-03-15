@@ -5,8 +5,8 @@ import { GetOtp } from '../../Services/AuthService'
 import toast from 'react-hot-toast'
 import Logo from "./../../Assets/Images/Logo/logo.png"
 import Loading from '../../UI/Loading'
-const SendOPTForm = ({setStep}) => {
-    const [phoneNumber , setPhoneNumber] = useState('')
+const SendOPTForm = ({setStep , phoneNumber , onChange}) => {
+    
   const {isPending, error, data, mutateAsync} = useMutation({
       mutationFn: GetOtp,
     })
@@ -23,9 +23,9 @@ const SendOPTForm = ({setStep}) => {
   return (
     <>
       <div className='flex-center mb-8'><img src={Logo} className='w-56' alt='ghorbani-dev.ir'/></div>
-       <h2 className='font-DanaBold mb-4'>ورود | ثبت نام</h2>
+       <h2 className='font-MorabbaBold mb-4'>ورود | ثبت نام</h2>
         <form className='w-full space-y-11' onSubmit={SendOtpHandler}>
-            <TextField label="شماره موبایل" name="PhoneNumber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="شماره موبایل خود را وارد نمایید"/>
+            <TextField label="شماره موبایل" name="PhoneNumber" value={phoneNumber} onChange={onChange} ltr placeholder="شماره موبایل خود را وارد نمایید"/>
             {
               isPending ? <Loading /> :
               <button type='submit' className='btn btn-primary w-full'>ارسال کد تایید</button>
