@@ -5,6 +5,7 @@ import CenterLogin from './../../Assets/Images/Login/centerLogin.png'
 import toast from 'react-hot-toast'
 import { useMutation } from '@tanstack/react-query'
 import { GetOtp } from '../../Services/AuthService'
+import CompleteProfileForm from './CompleteProfileForm'
 
 
 const AuthContainer = () => {
@@ -29,7 +30,7 @@ const AuthContainer = () => {
             case 1:
                 return <SendOTPForm phoneNumber={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} SendOtpHandler={SendOtpHandler} isPendingOtp={isPendingOtp}/>
             case 2:
-                return <CheckOTPForm phoneNumber={phoneNumber} OnBackHandler={() => setStep((prev) => prev - 1)} ResendOtpHandler={SendOtpHandler} OtpResponse={OtpResponse}/>       
+                return <CheckOTPForm phoneNumber={phoneNumber} OnBackHandler={() => setStep((prev) => prev - 1)} ResendOtpHandler={SendOtpHandler} OtpResponse={OtpResponse}/> 
             default:
                 break;
         }

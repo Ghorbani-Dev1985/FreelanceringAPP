@@ -6,6 +6,7 @@ import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { HiChevronRight, HiOutlineClock, HiOutlineRefresh } from "react-icons/hi"
 import { CiEdit } from "react-icons/ci";
+import Loading from '../../UI/Loading'
 
 const RESEND_TIME = 90
 
@@ -51,7 +52,10 @@ const CheckOTPForm = ({phoneNumber , OnBackHandler , ResendOtpHandler , OtpRespo
          <div className='flex-center my-4'>
            {time > 0 ? <p className='font-DanaMd flex-center gap-1 text-secondary-500'><HiOutlineClock className="size-6"/> <span>{time} ثانیه تا ارسال مجدد کد</span></p> : <button onClick={ResendOtpHandler} className='flex-center gap-1'><HiOutlineRefresh /><span> ارسال مجدد کد تایید</span></button>}
          </div>
-        <button className='btn btn-primary w-full'>تایید</button>
+         {
+          isPending ? <Loading /> :
+        <button type='submit' className='btn btn-primary w-full'>تایید</button>
+         }
       </form>
     </>
   )

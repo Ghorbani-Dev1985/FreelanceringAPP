@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-import {fontFamily} from "tailwindcss/defaultTheme"
+
 
 function withOpacity(variableName) {
   return ({ opacityValue }) => {
@@ -207,5 +207,9 @@ module.exports = {
       addVariant("child-hover", "& > *:hover");
     },
     require("tailwind-scrollbar"),
+    require("@tailwindcss/forms")({
+      strategy: 'base', // only generate global styles
+      strategy: 'class', // only generate classes
+    }),
   ],
 };
