@@ -1,13 +1,29 @@
 import React, { useState } from 'react'
 import TextField from '../../UI/TextField'
 import RadioInput from '../../UI/RadioInput'
+import { useMutation } from '@tanstack/react-query'
+import { CompleteProfile } from '../../Services/AuthService'
+import toast from 'react-hot-toast'
+import Loading from '../../UI/Loading'
 
 const CompleteProfileForm = () => {
     const [fullName , setFullName] = useState("")
     const [email , setEmail] = useState("")
     const [role , setRole] = useState("")
+   const {mutateAsync , isPending} = useMutation({
+        mutationFn: CompleteProfile
+    })
     const CompleteProfileHandler = async (event) => {
       event.preventDefault()
+      try {
+        const {message , user } = await mutateAsync({fullName , email , role})
+        console.log(user)
+         toast.success(message)
+        
+        }catch(error) {
+          
+          toast.error(error?.response?.data?.message)
+        }
     }
   return (
     <section className='flex-center h-screen'>
@@ -20,7 +36,10 @@ const CompleteProfileForm = () => {
                 <RadioInput label="کارفرما" name="role" value="OWNER" onChange={(e) => setRole(e.target.value)} checked={role === "OWNER"}/>
                 <RadioInput label="فریلنسر" name="role" value="FREELANCER" onChange={(e) => setRole(e.target.value)} checked={role === "FREELANCER"}/>
         </div>
+        {
+            isPending ? <Loading /> :
         <button type='submit' className='btn btn-primary w-full'>ثبت اطلاعات</button>
+        }
         </form>
     </div>
     </section>
