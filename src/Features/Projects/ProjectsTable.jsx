@@ -2,6 +2,9 @@ import React from 'react'
 import useOwnerProjects from './useOwnerProjects'
 import Loading from './../../UI/Loading'
 import EmptyAlert from '../../UI/EmptyAlert'
+import TruncateText from '../../Utils/TruncateText'
+import ToLocalDateStringShort from '../../Services/ToLocalDateStringShort'
+import { ToPersianNumbersWithComma } from '../../Services/ToPersianNumbersWithComma'
 
 const ProjectsTable = () => {
     const {isLoading , projects} = useOwnerProjects()
@@ -57,16 +60,16 @@ const ProjectsTable = () => {
                     {index + 1}
                 </th>
                 <td className="px-6 py-4">
-                    {title}
+                    {TruncateText(title , 30)}
                 </td>
                 <td className="px-6 py-4">
                     {category.name}
                 </td>
                 <td className="px-6 py-4">
-                    {budget}
+                    {ToPersianNumbersWithComma(budget)}
                 </td>
                 <td className="px-6 py-4 text-right">
-                   {deadline}
+                   {ToLocalDateStringShort(deadline)}
                 </td>
                 <td className="px-6 py-4 text-right">
                 <div className='flex flex-wrap items-center gap-2 max-w-[200px'>
