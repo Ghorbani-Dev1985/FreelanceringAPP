@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Table from '../../UI/Table'
 import { ToPersianNumbersWithComma } from '../../Services/ToPersianNumbersWithComma'
 import ToLocalDateStringShort from '../../Services/ToLocalDateStringShort'
 import TruncateText from '../../Utils/TruncateText'
-
+import { TbPencilMinus } from "react-icons/tb";
+import { HiOutlineTrash } from "react-icons/hi";
+import Modal from '../../UI/Modal'
 
 const ProjectRow = ({project , index}) => {
 const {_id , title , category , budget , deadline , tags , freelancer , status} = project
+const [isEditOpen , setIsEditOpen] = useState(false)
   return (
 
     <React.Fragment key={_id}>
@@ -39,7 +42,22 @@ const {_id , title , category , budget , deadline , tags , freelancer , status} 
                     status === "open" ? <span className='badge badge-primary'>باز</span> : <span className='badge badge-close'>بسته</span>
                    }
                 </td>
+                <td>
+                    <div className='flex-center gap-x-4'>
+                    <button onClick={() => setIsEditOpen((prev) => !prev)}>
+                    <TbPencilMinus className='size-5 text-sky-500'/>
+                    </button>
+                    {/* Modal */}
+                    <Modal open={isEditOpen} title="ویرایش پروژه" OnCloseHandler={() => setIsEditOpen((prev) => !prev)}>
+                        this is modal
+                    </Modal>
+                    <button>
+                    <HiOutlineTrash className='size-5 text-rose-500'/>
+                    </button>
+                    </div>
+                </td>
                        </Table.Row>
+                       
     </React.Fragment>
   )
 }
