@@ -154,7 +154,24 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-
+.badge {
+  @apply inline-block whitespace-nowrap rounded-xl px-2 py-0.5;
+}
+.badge-primary {
+  @apply bg-primary-900 text-white;
+}
+.badge-secondary {
+  @apply bg-secondary-200 text-secondary-600;
+}
+.badge-success {
+  @apply bg-emerald-500 text-white;
+}
+.badge-danger {
+  @apply bg-rose-500 text-white;
+}
+.badge-close {
+  @apply bg-amber-500 text-white;
+}
 }
 
 @layer utilities {
