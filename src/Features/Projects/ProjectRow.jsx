@@ -10,6 +10,7 @@ import Modal from '../../UI/Modal'
 const ProjectRow = ({project , index}) => {
 const {_id , title , category , budget , deadline , tags , freelancer , status} = project
 const [isEditOpen , setIsEditOpen] = useState(false)
+const [isDeleteOpen , setIsDeleteOpen] = useState(false)
   return (
 
     <React.Fragment key={_id}>
@@ -47,13 +48,17 @@ const [isEditOpen , setIsEditOpen] = useState(false)
                     <button onClick={() => setIsEditOpen((prev) => !prev)}>
                     <TbPencilMinus className='size-5 text-sky-500'/>
                     </button>
-                    {/* Modal */}
-                    <Modal open={isEditOpen} title="ویرایش پروژه" OnCloseHandler={() => setIsEditOpen((prev) => !prev)}>
+                    {/* Edit Modal */}
+                    <Modal open={isEditOpen} title={`ویرایش ${title}`} OnCloseHandler={() => setIsEditOpen((prev) => !prev)}>
                         this is modal
                     </Modal>
-                    <button>
+                    <button onClick={() => setIsDeleteOpen((prev) => !prev)}>
                     <HiOutlineTrash className='size-5 text-rose-500'/>
                     </button>
+                    {/* Delete Modal */}
+                    <Modal open={isDeleteOpen} resourceName={title} title={`حذف ${title}`} OnCloseHandler={() => setIsDeleteOpen((prev) => !prev)} OnConfirmHandler={() => {}} disabled={false}>
+                        this is modal
+                    </Modal>
                     </div>
                 </td>
                        </Table.Row>

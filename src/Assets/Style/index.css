@@ -111,6 +111,12 @@
   .btn-secondary{
     @apply px-4 py-2 bg-secondary-600 text-secondary-50 hover:bg-secondary-500 shadow-lg shadow-primary-300
   }
+  .btn-noconfirm{
+    @apply px-4 py-2 bg-transparent border text-secondary-600 shadow-lg
+  }
+  .btn-danger{
+    @apply px-4 py-2 bg-rose-500 text-secondary-50 hover:bg-rose-600 shadow-lg shadow-rose-300
+  }
   .button-md {
     height: 2.5rem;
     -moz-column-gap: 0.5rem;
