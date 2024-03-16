@@ -6,11 +6,13 @@ import TruncateText from '../../Utils/TruncateText'
 import { TbPencilMinus } from "react-icons/tb";
 import { HiOutlineTrash } from "react-icons/hi";
 import Modal from '../../UI/Modal'
+import useRemoveProject from './useRemoveProject'
 
 const ProjectRow = ({project , index}) => {
 const {_id , title , category , budget , deadline , tags , freelancer , status} = project
 const [isEditOpen , setIsEditOpen] = useState(false)
 const [isDeleteOpen , setIsDeleteOpen] = useState(false)
+const {removeProject , isDeleting} = useRemoveProject()
   return (
 
     <React.Fragment key={_id}>
@@ -56,7 +58,7 @@ const [isDeleteOpen , setIsDeleteOpen] = useState(false)
                     <HiOutlineTrash className='size-5 text-rose-500'/>
                     </button>
                     {/* Delete Modal */}
-                    <Modal open={isDeleteOpen} resourceName={title} title={`حذف ${title}`} OnCloseHandler={() => setIsDeleteOpen((prev) => !prev)} OnConfirmHandler={() => {}} disabled={false}>
+                    <Modal open={isDeleteOpen} resourceName={title} title={`حذف ${title}`} OnCloseHandler={() => setIsDeleteOpen((prev) => !prev)} OnConfirmHandler={() => removeProject(_id , {onSuccess: () => setIsDeleteOpen((prev) => !prev)})} disabled={false}>
                         this is modal
                     </Modal>
                     </div>

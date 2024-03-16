@@ -9,6 +9,7 @@ const ProjectsTable = () => {
     const {isLoading , projects} = useOwnerProjects()
     if(isLoading) return <Loading />
     if(projects.length) return <EmptyAlert text="تا حالا پروژه ای ثبت نشده" />
+    console.log(projects)
   return (
     <>
        <Table>
