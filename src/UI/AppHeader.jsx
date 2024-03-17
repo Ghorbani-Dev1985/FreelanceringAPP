@@ -7,7 +7,7 @@ const {data} = useUser()
 console.log(data)
   return (
     
-    <div className='flex items-center gap-x-1 mb-8 font-DanaBold'><BiCheckShield className='size-6'/><span className='text-emerald-500'></span> عزیز به پنل کاربری خوش اومدی</div>
+    <div className='flex items-center gap-x-1 mb-44 font-DanaBold'><BiCheckShield className='size-6'/><span className='text-emerald-500'></span> عزیز به پنل کاربری خوش اومدی</div>
   )
 }
 
