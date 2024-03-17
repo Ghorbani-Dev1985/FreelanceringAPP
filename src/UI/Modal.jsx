@@ -12,7 +12,7 @@ const Modal = ({ open, OnCloseHandler, title, children }) => {
         <div ref={ref} className="w-[calc(100vw-2rem)] md:max-w-lg max-h-[calc(100vh-2rem)] overflow-y-auto fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary-0 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
           {/* Header */}
           <div className="flex-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-            <h3 className="flex-center line-clamp-1 flex-1 text-xl font-MorabbaBold text-secondary-700 dark:text-white">
+            <h3 className="flex-center line-clamp-1 flex-1 text-3xl font-MorabbaBold text-secondary-700 dark:text-white">
               {title}
             </h3>
             <button

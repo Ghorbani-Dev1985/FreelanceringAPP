@@ -1,6 +1,7 @@
 import React from 'react'
 import TextField from './../../UI/TextField'
 import { useForm } from 'react-hook-form'
+import RHFSelect from '../../UI/RHFSelect'
 
 const CreateProjectForm = () => {
   const {register , formState: {errors} , handleSubmit} = useForm()
@@ -44,6 +45,7 @@ const CreateProjectForm = () => {
                 },
             }
         } errors={errors} />
+        <RHFSelect label="دسته بندی" required name="category" register={register} options={[]} />
         <button type='submit' className='btn btn-primary w-full'>افزودن</button>
     </form>
   )

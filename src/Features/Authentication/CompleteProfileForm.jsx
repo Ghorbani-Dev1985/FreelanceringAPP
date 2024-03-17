@@ -1,6 +1,5 @@
 import React from 'react'
 import TextField from '../../UI/TextField'
-import RadioInput from '../../UI/RadioInput'
 import { useMutation } from '@tanstack/react-query'
 import { CompleteProfile } from '../../Services/AuthService'
 import toast from 'react-hot-toast'
