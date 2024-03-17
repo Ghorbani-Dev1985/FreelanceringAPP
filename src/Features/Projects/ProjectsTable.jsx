@@ -47,7 +47,7 @@ const ProjectsTable = () => {
             {
                 projects.map((project , index) => {
                     return( 
-                      <React.Fragment key={project}>
+                      <React.Fragment key={index}>
                         <ProjectRow project={project} index={index} />
                       </React.Fragment>               
                     )

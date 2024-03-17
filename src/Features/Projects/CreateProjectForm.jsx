@@ -7,19 +7,42 @@ import DatePickerField from '../../UI/DatePickerField'
 import useCategories from '../../Hooks/useCategories'
 import useCreateProject from './useCreateProject'
 import Loading from '../../UI/Loading'
+import useEditProject from './useEditProject'
 
-const CreateProjectForm = ({OnCloseHandler}) => {
-  const [tags , setTags] = useState([]) 
-  const [date , setDate] = useState(new Date())
-  const {register , formState: {errors} , handleSubmit , reset} = useForm()
+const CreateProjectForm = ({OnCloseHandler , ProjectToEdit = {}}) => {
+    
+  const {_id: editId} = ProjectToEdit;
+  const isEditSession = Boolean(editId);
+  const {title , description , budget , category , deadline , tags: prevTags} = ProjectToEdit
+  let editValues = {}
+  if(isEditSession){
+    editValues = {
+        title,
+        description,
+        budget,
+        category: category._id
+    }
+  }
+ 
+  const [tags , setTags] = useState(prevTags || []) 
+  const [date , setDate] = useState(new Date(deadline) || "")
+  const {register , formState: {errors} , handleSubmit , reset} = useForm({defaultValues : editValues})
   const {categories} = useCategories()
   const {createProject , isCreating} = useCreateProject()
+  const {editProject , isEditing} = useEditProject()
   const AddNewProjectHandler = (data) => {
     const newProject = {...data , deadline: new Date(date).toISOString() , tags}
-    createProject(newProject , {onSuccess:() => {
+    if(isEditSession){
+        editProject({id: editId , newProject} , {onSuccess: () => {
         OnCloseHandler();
          reset();
         }})
+    }else{
+        createProject(newProject , {onSuccess:() => {
+        OnCloseHandler();
+         reset();
+        }})
+    }
   }
   return (
     <form className='space-y-8' onSubmit={handleSubmit(AddNewProjectHandler)}>
@@ -60,12 +83,12 @@ const CreateProjectForm = ({OnCloseHandler}) => {
         } errors={errors} />
         <RHFSelect label="دسته بندی" required name="category" register={register} options={categories} />
         <div>
-            <label className='block mb-1'>نام تگ</label>
+            <label className='flex mb-1'>نام تگ</label>
         <TagsInput value={tags} onChange={setTags} name='tags'/>
         </div>
-        <DatePickerField label="تاریخ ددلاین" value={date} setDate={setDate}/>
+        <DatePickerField label="تاریخ ددلاین" date={date} setDate={setDate}/>
         {
-            isCreating ? <Loading /> :
+            isCreating || isEditing ? <Loading /> :
         <button type='submit' className='btn btn-primary w-full'>افزودن</button>
         }
     </form>

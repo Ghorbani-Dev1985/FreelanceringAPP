@@ -4,7 +4,7 @@ import React from 'react'
 const TextField = ({label , name , register , placeholder , ltr , type="text" , required , validationSchema = {} , errors}) => {
   return (
     <div>
-                <label htmlFor={name} className='block mb-1'>{label} {required && <span className='text-rose-500'>*</span>}</label>
+                <label htmlFor={name} className='flex mb-1'>{label} {required && <span className='text-rose-500'>*</span>}</label>
                 <input 
                 {...register(name, validationSchema)}
                 type={type}

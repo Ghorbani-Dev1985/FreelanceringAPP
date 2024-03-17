@@ -7,6 +7,7 @@ import { TbPencilMinus } from "react-icons/tb";
 import { HiOutlineTrash } from "react-icons/hi";
 import Modal from '../../UI/Modal'
 import useRemoveProject from './useRemoveProject'
+import CreateProjectForm from './CreateProjectForm'
 
 const ProjectRow = ({project , index}) => {
 const {_id , title , category , budget , deadline , tags , freelancer , status} = project
@@ -42,7 +43,7 @@ const {removeProject , isDeleting} = useRemoveProject()
                 </td>
                 <td className="px-6 py-4 text-right">
                    {
-                    status === "OPEN" ? <span className='badge badge-primary px-6 py-2'>باز</span> : <span className='badge badge-close px-6 py-2'>بسته</span>
+                    status === "OPEN" ? <span className='badge badge-primary px-6 py-1.5'>باز</span> : <span className='badge badge-close px-6 py-1.5'>بسته</span>
                    }
                 </td>
                 <td>
@@ -52,7 +53,7 @@ const {removeProject , isDeleting} = useRemoveProject()
                     </button>
                     {/* Edit Modal */}
                     <Modal open={isEditOpen} title={`ویرایش ${title}`} OnCloseHandler={() => setIsEditOpen((prev) => !prev)}>
-                        this is modal
+                        <CreateProjectForm ProjectToEdit={project} OnCloseHandler={() => setIsEditOpen((prev) => !prev)}/>
                     </Modal>
                     <button onClick={() => setIsDeleteOpen((prev) => !prev)}>
                     <HiOutlineTrash className='size-5 text-rose-500'/>
