@@ -13,7 +13,7 @@ const ProjectHeader = () => {
       </div>
       {/* New Project Modal */}
       <Modal open={isNewProjectFormOpen} title="افزودن پروژه جدید" OnCloseHandler={() => setIsNewProjectFormOpen((prev) => !prev)}>
-                        <CreateProjectForm />
+                        <CreateProjectForm OnCloseHandler={() => setIsNewProjectFormOpen((prev) => !prev)} />
                     </Modal>
     </>
   )

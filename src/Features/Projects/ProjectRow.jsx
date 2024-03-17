@@ -24,7 +24,7 @@ const {removeProject , isDeleting} = useRemoveProject()
                     {TruncateText(title , 30)}
                 </td>
                 <td className="px-6 py-4">
-                    {category.name}
+                    {category.title}
                 </td>
                 <td className="px-6 py-4">
                     {ToPersianNumbersWithComma(budget)}
@@ -34,7 +34,7 @@ const {removeProject , isDeleting} = useRemoveProject()
                 </td>
                 <td className="px-6 py-4 text-right">
                 <div className='flex flex-wrap items-center gap-2 max-w-[200px'>
-                   {tags.map((tag) => (<span className='badge badge-secondary' key={teg}>{tag}</span>))}
+                   {tags.map((tag) => (<span className='badge badge-secondary' key={tag}>{tag}</span>))}
                 </div>
                 </td>
                 <td className="px-6 py-4 text-right">
@@ -42,7 +42,7 @@ const {removeProject , isDeleting} = useRemoveProject()
                 </td>
                 <td className="px-6 py-4 text-right">
                    {
-                    status === "open" ? <span className='badge badge-primary'>باز</span> : <span className='badge badge-close'>بسته</span>
+                    status === "OPEN" ? <span className='badge badge-primary px-6 py-2'>باز</span> : <span className='badge badge-close px-6 py-2'>بسته</span>
                    }
                 </td>
                 <td>

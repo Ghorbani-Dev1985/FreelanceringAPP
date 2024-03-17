@@ -7,3 +7,7 @@ export function GetOwnerProjectsApi(){
 export function RemoveProjectsApi(id){
     return Http.delete(`/project/${id}`).then(({data}) => data.data)
 }
+
+export function CreateProjectApi(data){
+    return Http.post('/project/add' , data).then(({data}) => data.data)
+}

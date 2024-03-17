@@ -31,9 +31,6 @@ const ProjectsTable = () => {
                     ددلاین               
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    ددلاین               
-                  </th>
-                  <th scope="col" className="px-6 py-3">
                     تگ ها               
                   </th>
                   <th scope="col" className="px-6 py-3">
@@ -49,8 +46,10 @@ const ProjectsTable = () => {
         <Table.Body>
             {
                 projects.map((project , index) => {
-                    return(                
-                       <ProjectRow project={project} index={index} />
+                    return( 
+                      <React.Fragment key={project}>
+                        <ProjectRow project={project} index={index} />
+                      </React.Fragment>               
                     )
                 })
             }

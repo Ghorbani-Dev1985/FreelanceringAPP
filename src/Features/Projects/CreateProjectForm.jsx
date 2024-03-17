@@ -5,15 +5,21 @@ import RHFSelect from '../../UI/RHFSelect'
 import { TagsInput } from 'react-tag-input-component'
 import DatePickerField from '../../UI/DatePickerField'
 import useCategories from '../../Hooks/useCategories'
+import useCreateProject from './useCreateProject'
+import Loading from '../../UI/Loading'
 
-const CreateProjectForm = () => {
+const CreateProjectForm = ({OnCloseHandler}) => {
   const [tags , setTags] = useState([]) 
   const [date , setDate] = useState(new Date())
-  console.log(date)
-  const {register , formState: {errors} , handleSubmit} = useForm()
+  const {register , formState: {errors} , handleSubmit , reset} = useForm()
   const {categories} = useCategories()
+  const {createProject , isCreating} = useCreateProject()
   const AddNewProjectHandler = (data) => {
-    console.log(data)
+    const newProject = {...data , deadline: new Date(date).toISOString() , tags}
+    createProject(newProject , {onSuccess:() => {
+        OnCloseHandler();
+         reset();
+        }})
   }
   return (
     <form className='space-y-8' onSubmit={handleSubmit(AddNewProjectHandler)}>
@@ -58,7 +64,10 @@ const CreateProjectForm = () => {
         <TagsInput value={tags} onChange={setTags} name='tags'/>
         </div>
         <DatePickerField label="تاریخ ددلاین" value={date} setDate={setDate}/>
+        {
+            isCreating ? <Loading /> :
         <button type='submit' className='btn btn-primary w-full'>افزودن</button>
+        }
     </form>
   )
 }
