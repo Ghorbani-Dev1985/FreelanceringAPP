@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import TextField from '../../UI/TextField'
 import RadioInput from '../../UI/RadioInput'
 import { useMutation } from '@tanstack/react-query'
@@ -8,20 +8,19 @@ import Loading from '../../UI/Loading'
 import { useNavigate } from 'react-router-dom'
 import {AuthLayout} from "./AuthContainer"
 import CompleteProfileImg from "./../../Assets/Images/CompleteProfile/completeProfile.png"
+import { useForm } from 'react-hook-form'
+import RadioInputGroup from '../../UI/RadioInputGroup'
 
 const CompleteProfileForm = () => {
-    const [fullName , setFullName] = useState("")
-    const [email , setEmail] = useState("")
-    const [role , setRole] = useState("")
+    const {handleSubmit , register , watch , formState: {errors} } = useForm()
     const navigate = useNavigate()
    const {mutateAsync , isPending} = useMutation({
         mutationFn: CompleteProfile
     })
-    const CompleteProfileHandler = async (event) => {
-      event.preventDefault()
+    const CompleteProfileHandler = async (data) => {
+      console.log(data)
       try {
-        const {message , user } = await mutateAsync({fullName , email , role})
-        console.log(user)
+        const {message , user } = await mutateAsync(data)
          toast.success(message)
         if(user.status !== 2){
             navigate("/")
@@ -39,14 +38,59 @@ const CompleteProfileForm = () => {
     <>
     <section className='flex h-screen'>
     <AuthLayout imgSrc={CompleteProfileImg} title="پروفایل خودتو تکمیل کن" subTitle="این کار و که انجام بدی مشخص میشه که کارفرما هستی یا فریلنسر تا بتونی از قابلیت های اپ کاملا استفاده کنی پس همین الان فرم رو تکمیلش کن">
-        <div className='flex-center my-4'><h2 className='font-MorabbaBold text-2xl'>تکمیل اطلاعات کاربری</h2></div>   
-        <form onSubmit={CompleteProfileHandler} className='space-y-8'>
-        <TextField label=" نام و نام خانوادگی" name="FullName" value={fullName} onChange={(e) => setFullName(e.target.value)} placeholder=" نام و نام خانوادگی خود را وارد نمایید"/>
-        <TextField label=" ایمیل" name="Email" value={email} onChange={(e) => setEmail(e.target.value)} ltr placeholder=" ایمیل خود را وارد نمایید"/>
-        <div className='flex-center gap-x-8'>   
-                <RadioInput label="کارفرما" name="role" value="OWNER" onChange={(e) => setRole(e.target.value)} checked={role === "OWNER"}/>
-                <RadioInput label="فریلنسر" name="role" value="FREELANCER" onChange={(e) => setRole(e.target.value)} checked={role === "FREELANCER"}/>
-        </div>
+        <div className='flex-center my-4'><h2 className='font-MorabbaBold text-2xl mb-8'>تکمیل اطلاعات کاربری</h2></div>   
+        <form onSubmit={handleSubmit(CompleteProfileHandler)} className='space-y-4'>
+        <TextField label=" نام و نام خانوادگی" name="name" register={register} placeholder=" لطفا نام و نام خانوادگی خودتو وارد کن" 
+        validationSchema={
+          {
+              required: "نام و نام خانوادگی اجباریه",
+              minLength:{
+                  value: 5,
+                  message: "حداقل ۵ کاراکتر باید وارد بشه"
+              },
+              maxLength: {
+                  value: 30,
+                  message: "حداکثر می تونی ۳۰ کاراکتر وارد کنی"
+              },
+              pattern: {
+                value: /^[\u0600-\u06FF\s]+$/g,
+                message: "نام و نام خانوادگی نامعتبره",
+              },
+          }
+      } errors={errors}/>
+        <TextField label=" ایمیل" name="email" register={register} ltr placeholder=" لطفا ایمیل خودتو وارد کن" 
+        validationSchema={
+          {
+              required: "ایمیل اجباریه",
+              minLength:{
+                  value: 5,
+                  message: "حداقل ۵ کاراکتر باید وارد بشه"
+              },
+              maxLength: {
+                  value: 30,
+                  message: "حداکثر می تونی ۳۰ کاراکتر وارد کنی"
+              },
+              pattern: {
+                value: /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2}/g,
+                message: "ایمیلی که وارد کردی نامعتبره",
+              }
+          }
+      } errors={errors}/>
+        <RadioInputGroup 
+         errors={errors}
+         register={register}
+         watch={watch}
+         configs={
+          {
+            name: 'role',
+            validationSchema: {required: "انتخاب نقش کاربری اجباریه"},
+            options: [
+              {value: "OWNER" , label: "کارفرما" },
+              {value: "FREELANCER" , label: "فریلنسر" },
+            ]
+          }
+         }
+        />
         {
           isPending ? <Loading /> :
           <button type='submit' className='btn btn-primary w-full'>ثبت اطلاعات</button>

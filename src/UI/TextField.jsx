@@ -1,10 +1,17 @@
 import React from 'react'
 
-const TextField = ({label , name , value , onChange , placeholder , ltr}) => {
+
+const TextField = ({label , name , register , placeholder , ltr , type="text" , required , validationSchema = {} , errors}) => {
   return (
     <div>
-                <label htmlFor={name} className='block mb-1'>{label}</label>
-                <input value={value} onChange={onChange} id={name} name={name} autoComplete='off' placeholder={placeholder} type='text' className={`${ltr && "dir-ltr placeholder:text-right"} textField-input`} />
+                <label htmlFor={name} className='block mb-1'>{label} {required && <span className='text-rose-500'>*</span>}</label>
+                <input 
+                {...register(name, validationSchema)}
+                type={type}
+                id={name} autoComplete='off' placeholder={placeholder} className={`${ltr && "dir-ltr placeholder:text-right"} textField-input`} />
+                {
+                  errors && errors[name] && <span className='block text-rose-500 my-3 text-base'>{errors[name]?.message}</span>
+                }
             </div>
   )
 }

@@ -7,7 +7,7 @@ const ProjectHeader = () => {
     const [isNewProjectFormOpen , setIsNewProjectFormOpen] = useState(false)
   return (
     <>
-       <div className='flex-between mb-8'>
+       <div className='flex-between'>
          <h2 className='font-MorabbaBold text-2xl'>پروژه های شما</h2>
          <button onClick={() => setIsNewProjectFormOpen((prev) => !prev)} className='btn btn-primary flex items-center gap-x-1'><HiMiniPlusCircle className="size-5"/><span>افزودن پروژه جدید</span></button>
       </div>
