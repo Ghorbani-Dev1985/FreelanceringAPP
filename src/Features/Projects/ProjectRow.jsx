@@ -8,6 +8,7 @@ import { HiOutlineTrash } from "react-icons/hi";
 import Modal from '../../UI/Modal'
 import useRemoveProject from './useRemoveProject'
 import CreateProjectForm from './CreateProjectForm'
+import ToggleProjectStatus from './ToggleProjectStatus'
 
 const ProjectRow = ({project , index}) => {
 const {_id , title , category , budget , deadline , tags , freelancer , status} = project
@@ -42,9 +43,10 @@ const {removeProject , isDeleting} = useRemoveProject()
                    {freelancer?.name || "-"}
                 </td>
                 <td className="px-6 py-4 text-right">
-                   {
+                    <ToggleProjectStatus project={project}/>
+                   {/* {
                     status === "OPEN" ? <span className='badge badge-primary px-6 py-1.5'>باز</span> : <span className='badge badge-close px-6 py-1.5'>بسته</span>
-                   }
+                   } */}
                 </td>
                 <td>
                     <div className='flex-center gap-x-4'>
