@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import useOwnerProjects from './useOwnerProjects'
 import Loading from './../../UI/Loading'
 import EmptyAlert from '../../UI/EmptyAlert'

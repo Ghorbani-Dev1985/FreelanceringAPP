@@ -4,17 +4,20 @@ import { useForm } from 'react-hook-form'
 import RHFSelect from '../../UI/RHFSelect'
 import { TagsInput } from 'react-tag-input-component'
 import DatePickerField from '../../UI/DatePickerField'
+import useCategories from '../../Hooks/useCategories'
 
 const CreateProjectForm = () => {
   const [tags , setTags] = useState([]) 
   const [date , setDate] = useState(new Date())
+  console.log(date)
   const {register , formState: {errors} , handleSubmit} = useForm()
+  const {categories} = useCategories()
   const AddNewProjectHandler = (data) => {
     console.log(data)
   }
   return (
     <form className='space-y-8' onSubmit={handleSubmit(AddNewProjectHandler)}>
-        <TextField label="عنوان پروژه" name="title" placeholder="لطفا عنوان پروژه رو وارد کن " register={register} requiredd validationSchema={
+        <TextField label="عنوان پروژه" name="title" placeholder="لطفا عنوان پروژه رو وارد کن " register={register} required validationSchema={
             {
                 required: "عنوان پروژه اجباریه",
                 minLength:{
@@ -27,7 +30,7 @@ const CreateProjectForm = () => {
                 }
             }
         } errors={errors} />
-         <TextField label="توضیحات پروژه" name="description" placeholder="لطفا توضیحات پروژه رو وارد کن " register={register} requiredd validationSchema={
+         <TextField label="توضیحات پروژه" name="description" placeholder="لطفا توضیحات پروژه رو وارد کن " register={register} required validationSchema={
             {
                 required: "توضیحات پروژه اجباریه",
                 minLength:{
@@ -40,7 +43,7 @@ const CreateProjectForm = () => {
                 }
             }
         } errors={errors} />
-        <TextField label="بودجه پروژه" name="budget" placeholder="لطفا بودجه پروژه رو وارد کن " type='number' register={register} requiredd validationSchema={
+        <TextField label="بودجه پروژه" name="budget" placeholder="لطفا بودجه پروژه رو وارد کن " type='number' register={register} required validationSchema={
             {
                 required: "بودجه پروژه اجباریه",
                 min:{
@@ -49,12 +52,12 @@ const CreateProjectForm = () => {
                 },
             }
         } errors={errors} />
-        <RHFSelect label="دسته بندی" required name="category" register={register} options={[]} />
+        <RHFSelect label="دسته بندی" required name="category" register={register} options={categories} />
         <div>
             <label className='block mb-1'>نام تگ</label>
         <TagsInput value={tags} onChange={setTags} name='tags'/>
         </div>
-        <DatePickerField value={date} setDate={setDate}/>
+        <DatePickerField label="تاریخ ددلاین" value={date} setDate={setDate}/>
         <button type='submit' className='btn btn-primary w-full'>افزودن</button>
     </form>
   )

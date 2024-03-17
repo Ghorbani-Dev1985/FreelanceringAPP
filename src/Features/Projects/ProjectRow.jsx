@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Table from '../../UI/Table'
-import { ToPersianNumbersWithComma } from '../../Services/ToPersianNumbersWithComma'
-import ToLocalDateStringShort from '../../Services/ToLocalDateStringShort'
+import { ToPersianNumbersWithComma } from '../../Utils/ToPersianNumbersWithComma'
+import ToLocalDateStringShort from '../../Utils/ToLocalDateStringShort'
 import TruncateText from '../../Utils/TruncateText'
 import { TbPencilMinus } from "react-icons/tb";
 import { HiOutlineTrash } from "react-icons/hi";
