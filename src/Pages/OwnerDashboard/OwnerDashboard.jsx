@@ -1,8 +1,9 @@
 import React from 'react'
+import Dashboard from '../../Features/Owner/Dashboard'
 
 const OwnerDashboard = () => {
   return (
-    <div>Owner Page</div>
+    <Dashboard />
   )
 }
 
