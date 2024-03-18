@@ -2,7 +2,7 @@ import React from "react";
 import HorizontalLine from "./HorizontalLine";
 import Logo from "./../Assets/Images/Logo/logo2.png";
 import { NavLink } from "react-router-dom";
-import { HiOutlineHome, HiOutlineLogout } from "react-icons/hi";
+import { HiOutlineHome } from "react-icons/hi";
 import { BiFolderOpen, BiListUl } from "react-icons/bi";
 
 const menuItems = [
@@ -52,12 +52,6 @@ const AppSidebar = () => {
             </React.Fragment>
           );
         })}
-        <p className="flex items-center gap-x-2.5 h-10 px-3 bg-gray-200/50 rounded-lg text-rose-500 hover:text-rose-700 transition-colors cursor-pointer">
-          <span className="flex items-center gap-x-3">
-            <HiOutlineLogout className="size-5" />
-            خروج
-          </span>
-        </p>
       </div>
     </aside>
   );

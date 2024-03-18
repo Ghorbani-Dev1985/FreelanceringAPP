@@ -15,3 +15,7 @@ export function CompleteProfile(data){
 export function GetUser(){
     return Http.get("/user/profile").then(({data}) => data.data)
 }
+
+export function LogoutUser(){
+    return Http.post("/user/logout").then(({data}) => data.data)
+}
