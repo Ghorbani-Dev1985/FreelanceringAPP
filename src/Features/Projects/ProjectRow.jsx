@@ -13,7 +13,6 @@ import ToggleProjectStatus from './ToggleProjectStatus'
 import { Link } from 'react-router-dom'
 
 
-
 const ProjectRow = ({project , index}) => {
 const {_id , title , category , budget , deadline , tags , freelancer , status} = project
 const [isEditOpen , setIsEditOpen] = useState(false)

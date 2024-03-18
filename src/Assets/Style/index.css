@@ -89,7 +89,7 @@
     @apply p-0 m-0 box-border;
   }
   body {          
-    @apply text-zinc-700 dark:text-white bg-gray-100 dark:bg-gray-900 h-full font-DanaBold text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
+    @apply text-zinc-700 dark:text-white bg-gray-100 dark:bg-gray-900 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
@@ -111,7 +111,7 @@
     @apply w-full bg-gray-100 outline-none border border-gray-100 text-secondary-900 px-4 py-3 rounded-lg hover:border-primary-500 focus:border-primary-500 transition-all duration-300 ease-in-out focus:shadow-lg focus:shadow-primary-200
   }
   .btn{
-    @apply px-3 py-1 my-8 font-DanaBold rounded-lg transition-all duration-300 ease-in-out
+    @apply px-3 py-1 my-6 font-DanaBold rounded-lg transition-all duration-300 ease-in-out
   }
   .btn-primary{
     @apply px-4 py-2 bg-primary-900 text-secondary-50 hover:bg-primary-800 shadow-lg shadow-primary-300
@@ -184,7 +184,7 @@
   @apply bg-emerald-100 text-emerald-700 border border-emerald-500;
 }
 .badge-danger {
-  @apply bg-rose-500 text-white;
+  @apply bg-rose-100 text-rose-700 border border-rose-500;
 }
 .badge-close {
   @apply bg-amber-100 text-amber-700 border border-amber-500;

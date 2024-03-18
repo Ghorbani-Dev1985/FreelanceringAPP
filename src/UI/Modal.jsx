@@ -24,7 +24,7 @@ const Modal = ({ open, OnCloseHandler, title, children }) => {
             </button>
           </div>
           {/* Body */}
-          <div className="p-4 md:p-5 space-y-4 text-secondary-700">{children}</div>
+          <div className="p-4 md:p-5 flex flex-col gap-y-4 text-secondary-700">{children}</div>
         </div>
       </div>
     )

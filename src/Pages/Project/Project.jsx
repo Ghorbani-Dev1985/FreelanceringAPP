@@ -7,7 +7,6 @@ import ProposalsTable from '../../Features/Project/ProposalsTable'
 const Project = () => {
   
 const {project , isLoading} = useProject()
- console.log(project)
  if(isLoading) return <Loading />
   return (
     <>

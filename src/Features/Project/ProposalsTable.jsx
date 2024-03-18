@@ -28,7 +28,7 @@ const ProposalsTable = ({proposals}) => {
                    وضعیت           
                   </th>
                 <th scope="col" className="px-1.5 py-4.5">
-                عملیات
+                تغییر وضعیت
                 </th>
         </Table.Header>
         <Table.Body>
