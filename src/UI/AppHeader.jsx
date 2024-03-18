@@ -1,12 +1,18 @@
 import React from 'react'
 import useUser from '../Features/Authentication/useUser'
-import { BiCheckShield } from 'react-icons/bi'
+import HeaderMenu from './HeaderMenu'
+import UserAvatar from '../Features/Authentication/UserAvatar'
 
 const AppHeader = () => {
-const {data} = useUser()
+  const {isLoading, user} = useUser()
   return (
-    
-    <div className='flex items-center gap-x-1 mt-8 mb-30 font-DanaBold'><span className='flex-center gap-x-1 text-emerald-500'><BiCheckShield className='size-6'/>{data && data.user.name}</span> عزیز به پنل کاربری خوش اومدی</div>
+    <section className='container xl:max-w-screen-lg flex items-center justify-end font-DanaBold mt-12 mb-20'>
+      {/* <div className='flex items-center gap-x-1 '><span className='flex-center gap-x-1 text-emerald-500'><BiCheckShield className='size-6'/>{data && data.user.name}</span> عزیز به پنل کاربری خوش اومدی</div> */}
+      <div className={`${isLoading && "blur-md opacity-55"} flex-center gap-x-2`}>
+        <HeaderMenu />
+        <UserAvatar />
+      </div>
+    </section>
   )
 }
 
