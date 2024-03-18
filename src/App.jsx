@@ -10,6 +10,10 @@ import Projects from "./Pages/Projects/Projects";
 import Project from "./Pages/Project/Project";
 import { DarkModeProvider } from "./Context/DarkModeContext.jsx";
 import OwnerLayout from "./Features/Owner/OwnerLayout.jsx";
+import FreelancerDashboard from "./Pages/FreelancerDashboard/FreelancerDashboard.jsx";
+import Proposals from "./Pages/Proposals/Proposals.jsx";
+import SubmittedProjects from "./Pages/SubmittedProjects/SubmittedProjects.jsx";
+import FreelancerLayout from "./Features/Freelancer/FreelancerLayout.jsx";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +31,12 @@ function App() {
               <Route path="dashboard" element={<OwnerDashboard />} />
               <Route path="projects" element={<Projects />} />
               <Route path="projects/:id" element={<Project />} />
+            </Route>
+            <Route path="/freelancer" element={<FreelancerLayout />}>
+              <Route index element={<Navigate to="dashboard" replace />}/>
+              <Route path="dashboard" element={<FreelancerDashboard />} />
+              <Route path="proposals" element={<Proposals />} />
+              <Route path="projects" element={<SubmittedProjects />} />
             </Route>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />

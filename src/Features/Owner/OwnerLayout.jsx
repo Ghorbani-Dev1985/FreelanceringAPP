@@ -9,19 +9,19 @@ import { BiFolderOpen, BiListUl } from 'react-icons/bi';
 const menuItems = [
   {
     id: 1,
-    to: "/owner/dashboard",
+    to: "dashboard",
     icon: <HiOutlineHome />,
     text: "نمای کلی",
   },
   {
     id: 2,
-    to: "/owner/projects",
+    to: "projects",
     icon: <BiListUl />,
     text: "پروژه ها",
   },
   {
     id: 3,
-    to: "/owner/project",
+    to: "project",
     icon: <BiFolderOpen />,
     text: "پروژه",
   },
