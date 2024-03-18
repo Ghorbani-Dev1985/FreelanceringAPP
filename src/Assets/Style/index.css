@@ -89,7 +89,7 @@
     @apply p-0 m-0 box-border;
   }
   body {          
-    @apply text-zinc-700 dark:text-white bg-gray-100 dark:bg-gray-900 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
+    @apply text-zinc-700 dark:text-white bg-gray-100 dark:bg-gray-900 h-full font-DanaBold text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
@@ -117,13 +117,16 @@
     @apply px-4 py-2 bg-primary-900 text-secondary-50 hover:bg-primary-800 shadow-lg shadow-primary-300
   }
   .btn-secondary{
-    @apply px-4 py-2 bg-secondary-600 text-secondary-50 hover:bg-secondary-500 shadow-lg shadow-primary-300
+    @apply px-4 py-2 bg-secondary-500 text-secondary-50 hover:bg-secondary-400 shadow-lg shadow-secondary-500
   }
   .btn-noconfirm{
     @apply px-4 py-2 bg-transparent border text-secondary-600 shadow-lg
   }
   .btn-danger{
     @apply px-4 py-2 bg-rose-500 text-secondary-50 hover:bg-rose-600 shadow-lg shadow-rose-300
+  }
+  .btn-outline{
+    @apply px-4 py-2 border border-secondary-500 text-secondary-500 hover:bg-secondary-100 shadow shadow-secondary-500
   }
   .button-md {
     height: 2.5rem;

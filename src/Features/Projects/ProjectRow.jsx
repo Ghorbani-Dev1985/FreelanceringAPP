@@ -23,7 +23,7 @@ const {removeProject , isDeleting} = useRemoveProject()
 
     <React.Fragment key={_id}>
       <Table.Row>
-      <tr className={`${status === "OPEN" ? "bg-emerald-50" : "bg-primary-100/50"} border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 px-6 py-4 transition-colors`}>
+      <tr className={`${status === "OPEN" ? "bg-emerald-50" : "bg-primary-100/50"} text-center border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 px-6 py-4 transition-colors`}>
                 <th className="px-6 py-4">
                     {index + 1}
                 </th>
@@ -36,18 +36,18 @@ const {removeProject , isDeleting} = useRemoveProject()
                 <td className="px-6 py-4">
                     {ToPersianNumbersWithComma(budget)}
                 </td>
-                <td className="px-6 py-4 text-right">
+                <td className="px-6 py-4">
                    {ToLocalDateStringShort(deadline)}
                 </td>
-                <td className="px-6 py-4 text-right">
+                <td className="px-1 py-4">
                 <div className='flex flex-wrap items-center gap-2 max-w-[200px'>
                    {tags.map((tag) => (<span className='badge badge-secondary' key={tag}>{tag}</span>))}
                 </div>
                 </td>
-                <td className="px-6 py-4 text-right">
+                <td className="px-6 py-4">
                    {freelancer?.name || "-"}
                 </td>
-                <td className="px-6 py-4 text-right">
+                <td className="px-6 py-4">
                     <ToggleProjectStatus project={project}/>
                 </td>
                 <td>
