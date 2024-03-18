@@ -23,7 +23,6 @@ const CreateProjectForm = ({OnCloseHandler , ProjectToEdit = {}}) => {
         category: category._id
     }
   }
- 
   const [tags , setTags] = useState(prevTags || []) 
   const [date , setDate] = useState(new Date(deadline) || "")
   const {register , formState: {errors} , handleSubmit , reset} = useForm({defaultValues : editValues})
@@ -54,8 +53,8 @@ const CreateProjectForm = ({OnCloseHandler , ProjectToEdit = {}}) => {
                     message: "حداقل ۱۰ کاراکتر باید وارد بشه"
                 },
                 maxLength: {
-                    value: 80,
-                    message: "حداکثر می تونی ۸۰ کاراکتر وارد کنی"
+                    value: 30,
+                    message: "حداکثر می تونی ۳۰ کاراکتر وارد کنی"
                 }
             }
         } errors={errors} />

@@ -1,11 +1,13 @@
 import React from 'react'
 import { BiInfoCircle } from 'react-icons/bi'
 import { HiOutlineX } from 'react-icons/hi'
+import useOutsideClick from '../Hooks/useOutsideClick'
 
 const ConfirmDelete = ({open ,title ,OnCloseHandler ,OnConfirmHandler , resourceName , disabled}) => {
+  const ref = useOutsideClick(OnCloseHandler)
   return (
- !open && (
-<div onClick={OnCloseHandler} className="w-full h-screen bg-secondary-800 bg-opacity-30 z-40 backdrop-blur-sm fixed top-0 left-0">
+ open && (
+<div className="w-full h-screen bg-secondary-800 bg-opacity-30 z-40 backdrop-blur-sm fixed top-0 left-0">
 <div className="w-[calc(100vw-2rem)] md:max-w-md max-h-[calc(100vh-2rem)] overflow-y-auto fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary-0 rounded-lg shadow-lg transition-all duration-500 ease-in-out">
         <div className="rounded-lg">
     {/* Header */}

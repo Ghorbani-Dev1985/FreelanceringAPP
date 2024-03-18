@@ -4,11 +4,15 @@ import { ToPersianNumbersWithComma } from '../../Utils/ToPersianNumbersWithComma
 import ToLocalDateStringShort from '../../Utils/ToLocalDateStringShort'
 import TruncateText from '../../Utils/TruncateText'
 import { TbPencilMinus } from "react-icons/tb";
-import { HiOutlineTrash } from "react-icons/hi";
+import { HiEye, HiOutlineTrash } from "react-icons/hi";
 import Modal from '../../UI/Modal'
+import ConfirmDelete from '../../UI/ConfirmDelete'
 import useRemoveProject from './useRemoveProject'
 import CreateProjectForm from './CreateProjectForm'
 import ToggleProjectStatus from './ToggleProjectStatus'
+import { Link } from 'react-router-dom'
+
+
 
 const ProjectRow = ({project , index}) => {
 const {_id , title , category , budget , deadline , tags , freelancer , status} = project
@@ -19,6 +23,7 @@ const {removeProject , isDeleting} = useRemoveProject()
 
     <React.Fragment key={_id}>
       <Table.Row>
+      <tr className={`${status === "OPEN" ? "bg-emerald-50" : "bg-primary-100/50"} border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 px-6 py-4 transition-colors`}>
                 <th className="px-6 py-4">
                     {index + 1}
                 </th>
@@ -44,9 +49,6 @@ const {removeProject , isDeleting} = useRemoveProject()
                 </td>
                 <td className="px-6 py-4 text-right">
                     <ToggleProjectStatus project={project}/>
-                   {/* {
-                    status === "OPEN" ? <span className='badge badge-primary px-6 py-1.5'>باز</span> : <span className='badge badge-close px-6 py-1.5'>بسته</span>
-                   } */}
                 </td>
                 <td>
                     <div className='flex-center gap-x-4'>
@@ -61,11 +63,15 @@ const {removeProject , isDeleting} = useRemoveProject()
                     <HiOutlineTrash className='size-5 text-rose-500'/>
                     </button>
                     {/* Delete Modal */}
-                    <Modal open={isDeleteOpen} resourceName={title} title={`حذف ${title}`} OnCloseHandler={() => setIsDeleteOpen((prev) => !prev)} OnConfirmHandler={() => removeProject(_id , {onSuccess: () => setIsDeleteOpen((prev) => !prev)})} disabled={false}>
-                        this is modal
-                    </Modal>
+                    <ConfirmDelete open={isDeleteOpen} resourceName={title} title={`حذف ${title}`} OnCloseHandler={() => setIsDeleteOpen((prev) => !prev)} OnConfirmHandler={() => removeProject(_id , {onSuccess: () => setIsDeleteOpen((prev) => !prev)})} disabled={false} />
                     </div>
                 </td>
+                <td>
+                    <Link to={_id} className='flex-center'>
+                    <HiEye className='size-6 text-primary-800'/>
+                    </Link>
+                </td>
+                </tr>
                        </Table.Row>
                        
     </React.Fragment>

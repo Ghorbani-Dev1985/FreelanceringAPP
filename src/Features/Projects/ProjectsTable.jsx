@@ -15,32 +15,35 @@ const ProjectsTable = () => {
     <>
        <Table>
         <Table.Header>
-        <th scope="col" className="px-6 py-3">
+        <th scope="col" className="py-4.5">
                     ردیف
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-4.5">
                     عنوان 
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-4.5">
                     دسته بندی
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-4.5">
                     بودجه
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-1 py-4.5">
                     ددلاین               
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4.5">
                     تگ ها               
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4.5">
                     فریلنسر               
                   </th>
-                  <th scope="col" className="px-6 py-3">
+                  <th scope="col" className="px-6 py-4.5">
                     وضعیت               
                   </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-1.5 py-4.5">
                 عملیات
+                </th>
+                <th scope="col" className="px-1.5 py-4.5">
+                درخواست‌ها
                 </th>
         </Table.Header>
         <Table.Body>
