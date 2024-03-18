@@ -89,7 +89,7 @@
     @apply p-0 m-0 box-border;
   }
   body {          
-    @apply text-zinc-700 dark:text-white bg-gray-100 dark:bg-gray-900 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
+    @apply text-secondary-600 dark:text-white bg-gray-100 dark:bg-gray-900 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
@@ -105,28 +105,28 @@
     text-align: left;
   }
   .textField-input {
-    @apply w-full px-4 py-3 rounded-lg text-secondary-900 outline-none border border-gray-100 bg-gray-100 hover:border-primary-500 focus:border-primary-500 transition-all duration-300 ease-in-out focus:shadow-lg focus:shadow-primary-200
+    @apply w-full px-4 py-3 rounded-lg text-secondary-900 outline-none border border-gray-100 bg-gray-100 dark:bg-transparent hover:border-primary-500 focus:border-primary-500 transition-all duration-300 ease-in-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200
   }
   .select{
-    @apply w-full bg-gray-100 outline-none border border-gray-100 text-secondary-900 px-4 py-3 rounded-lg hover:border-primary-500 focus:border-primary-500 transition-all duration-300 ease-in-out focus:shadow-lg focus:shadow-primary-200
+    @apply w-full bg-gray-100 outline-none border border-gray-100 text-secondary-900 dark:bg-transparent px-4 py-3 rounded-lg hover:border-primary-500 focus:border-primary-500 transition-all duration-300 ease-in-out focus:shadow-lg focus:shadow-primary-200 dark:focus:shadow-secondary-200
   }
   .btn{
     @apply px-3 py-1 my-6 font-DanaBold rounded-lg transition-all duration-300 ease-in-out
   }
   .btn-primary{
-    @apply px-4 py-2 bg-primary-900 text-secondary-50 hover:bg-primary-800 shadow-lg shadow-primary-300
+    @apply px-4 py-2 bg-primary-900 text-white hover:bg-primary-800 shadow-lg shadow-primary-300 dark:shadow-secondary-200
   }
   .btn-secondary{
-    @apply px-4 py-2 bg-secondary-500 text-secondary-50 hover:bg-secondary-400 shadow-lg shadow-secondary-500
+    @apply px-4 py-2 bg-secondary-500 text-secondary-50 hover:bg-secondary-400 shadow-lg shadow-secondary-500 dark:shadow-secondary-200
   }
   .btn-noconfirm{
     @apply px-4 py-2 bg-transparent border text-secondary-600 shadow-lg
   }
   .btn-danger{
-    @apply px-4 py-2 bg-rose-500 text-secondary-50 hover:bg-rose-600 shadow-lg shadow-rose-300
+    @apply px-4 py-2 bg-rose-500 text-secondary-50 hover:bg-rose-600 shadow-lg shadow-rose-300 dark:shadow-secondary-200
   }
   .btn-outline{
-    @apply px-4 py-2 border border-secondary-500 text-secondary-500 hover:bg-secondary-100 shadow shadow-secondary-500
+    @apply px-4 py-2 border border-secondary-500 text-secondary-500 hover:bg-secondary-100 shadow shadow-secondary-500 dark:shadow-secondary-200
   }
   .button-md {
     height: 2.5rem;

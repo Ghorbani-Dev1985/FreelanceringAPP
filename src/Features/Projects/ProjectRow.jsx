@@ -22,7 +22,7 @@ const {removeProject , isDeleting} = useRemoveProject()
 
     <React.Fragment key={_id}>
       <Table.Row>
-      <tr className={`${status === "OPEN" ? "bg-emerald-50" : "bg-primary-100/50"} text-center border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 px-6 py-4 transition-colors`}>
+      <tr className={`${status === "OPEN" ? "bg-emerald-50 dark:bg-secondary-300" : "bg-primary-100/50"} text-center border-b text-secondary-700 hover:bg-slate-200 dark:hover:bg-secondary-500 px-6 py-4 transition-colors`}>
                 <th className="px-6 py-4">
                     {index + 1}
                 </th>
@@ -67,7 +67,7 @@ const {removeProject , isDeleting} = useRemoveProject()
                 </td>
                 <td>
                     <Link to={_id} className='flex-center'>
-                    <HiEye className='size-6 text-primary-800'/>
+                    <HiEye className='size-6 text-sky-500'/>
                     </Link>
                 </td>
                 </tr>

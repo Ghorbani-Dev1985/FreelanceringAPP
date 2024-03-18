@@ -14,7 +14,7 @@ export default Table
 
 function TableHeader({children}){
     return(
-        <thead className="font-DanaBold text-gray-700 uppercase bg-secondary-100 dark:text-gray-400">
+        <thead className="font-DanaBold text-secondary-700 bg-secondary-200">
             <tr>{children}</tr>
         </thead>
     )
