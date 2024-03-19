@@ -2,7 +2,7 @@ import React from 'react'
 
 const Select = ({value , onChange , options}) => {
   return (
-    <select value={value} onChange={onChange} className='select py-2'>
+    <select value={value} onChange={onChange} className='select py-1.5'>
       {
         options.map(({label , value}) => (
             <React.Fragment key={value}>
