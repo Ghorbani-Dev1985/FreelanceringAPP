@@ -1,35 +1,33 @@
 import React from 'react'
-import EmptyAlert from "./../../UI/EmptyAlert"
-import Table from '../../UI/Table'
+import useProposals from './useProposals'
+import Loading from '../../UI/Loading'
+import EmptyAlert from '../../UI/EmptyAlert'
 import ProposalRow from './ProposalRow'
-const ProposalsTable = ({proposals}) => {
+import Table from '../../UI/Table'
 
-  if(!proposals.length) return <EmptyAlert text="تا حالا هیچ درخواستی براش ثبت نشده" />
+const ProposalsTable = () => {
+   const {isLoading , proposals} = useProposals()
+   if(isLoading) return <Loading />
+   if(!proposals.length) return <EmptyAlert text="تا حالا درخواستی ثبت نشده" />
   return (
     <>
-     <Table>
+        <Table>
         <Table.Header>
         <th scope="col" className="py-4.5">
                     ردیف
                 </th>
                 <th scope="col" className="px-6 py-4.5">
-                    نام فریلنسر 
+                    توضیحات 
                 </th>
                 <th scope="col" className="px-6 py-4.5">
-                    توضیحات
+                    زمان تحویل 
                 </th>
                 <th scope="col" className="px-6 py-4.5">
-                    زمان تحویل
+                    هزینه(تومان)
                 </th>
-                <th scope="col" className="px-1 py-4.5">
-                    هزینه(تومان)        
-                  </th>
                   <th scope="col" className="px-6 py-4.5">
-                   وضعیت           
+                    وضعیت               
                   </th>
-                <th scope="col" className="px-1.5 py-4.5">
-                تغییر وضعیت
-                </th>
         </Table.Header>
         <Table.Body>
             {
