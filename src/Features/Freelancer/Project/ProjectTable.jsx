@@ -8,7 +8,6 @@ import ProjectRow from './ProjectRow'
 
 const ProjectTable = () => {
    const {isLoading , projects} = useAllProjects()
-   console.log(projects)
     if(isLoading) return <Loading />
     if(!projects.length) return <EmptyAlert text="تا حالا پروژه ای ثبت نشده" />
   return (
