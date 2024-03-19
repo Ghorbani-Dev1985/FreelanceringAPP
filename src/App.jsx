@@ -14,6 +14,7 @@ import FreelancerDashboard from "./Pages/FreelancerDashboard/FreelancerDashboard
 import Proposals from "./Pages/Proposals/Proposals.jsx";
 import SubmittedProjects from "./Pages/SubmittedProjects/SubmittedProjects.jsx";
 import FreelancerLayout from "./Features/Freelancer/FreelancerLayout.jsx";
+import ProtectedRoute from "./UI/ProtectedRoute.jsx";
 
 const queryClient = new QueryClient();
 
@@ -26,13 +27,13 @@ function App() {
           <Routes>
             <Route path="/auth" element={<Auth />} />
             <Route path="/completeProfile" element={<CompleteProfile />} />
-            <Route path="/owner" element={<OwnerLayout />}>
+            <Route path="/owner" element={<ProtectedRoute><OwnerLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<OwnerDashboard />} />
               <Route path="projects" element={<Projects />} />
               <Route path="projects/:id" element={<Project />} />
             </Route>
-            <Route path="/freelancer" element={<FreelancerLayout />}>
+            <Route path="/freelancer" element={<ProtectedRoute><FreelancerLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="dashboard" replace />}/>
               <Route path="dashboard" element={<FreelancerDashboard />} />
               <Route path="proposals" element={<Proposals />} />
@@ -41,7 +42,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-          <main className="container xl:max-w-screen-xl"></main>
         </QueryClientProvider>
       </DarkModeProvider>
     </>
