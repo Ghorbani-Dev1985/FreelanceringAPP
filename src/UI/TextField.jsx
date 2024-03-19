@@ -10,7 +10,7 @@ const TextField = ({label , name , register , placeholder , ltr , type="text" , 
                 type={type}
                 id={name} autoComplete='off' placeholder={placeholder} className={`${ltr && "dir-ltr placeholder:text-right"} textField-input`} />
                 {
-                  errors && errors[name] && <span className='block text-rose-500 my-3 text-base'>{errors[name]?.message}</span>
+                  errors && errors[name] && <span className='block text-right text-rose-500 my-3 text-base'>{errors[name]?.message}</span>
                 }
             </div>
   )

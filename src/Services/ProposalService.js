@@ -1,7 +1,7 @@
 import Http from "./HttpService";
 
-export function ChangeProposalStatusApi({id , data}){
-    return Http.patch(`/proposal/${id}` , data).then(({data}) => data.data)
+export function ChangeProposalStatusApi({proposalId , ...rest}){
+    return Http.patch(`/proposal/${proposalId}` , rest).then(({data}) => data.data)
 }
 
 export function GetProposalsApi(){

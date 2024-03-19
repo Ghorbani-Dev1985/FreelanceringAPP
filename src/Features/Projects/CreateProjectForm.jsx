@@ -25,7 +25,7 @@ const CreateProjectForm = ({OnCloseHandler , ProjectToEdit = {}}) => {
   }
   const [tags , setTags] = useState(prevTags || []) 
   const [date , setDate] = useState(new Date(deadline) || "")
-  const {register , formState: {errors} , formState , handleSubmit , reset} = useForm({defaultValues : editValues})
+  const {register , formState: {errors , isValid} , handleSubmit , reset} = useForm({defaultValues : editValues , mode: "all"})
   const {categories} = useCategories()
   const {createProject , isCreating} = useCreateProject()
   const {editProject , isEditing} = useEditProject()
@@ -88,7 +88,7 @@ const CreateProjectForm = ({OnCloseHandler , ProjectToEdit = {}}) => {
         <DatePickerField label="تاریخ ددلاین" date={date} setDate={setDate}/>
         {
             isCreating || isEditing ? <Loading /> :
-        <button type='submit' disabled={!formState.isValid} className='btn btn-primary w-full'>افزودن</button>
+        <button type='submit' disabled={!isValid} className='btn btn-primary w-full'>افزودن</button>
         }
     </form>
   )

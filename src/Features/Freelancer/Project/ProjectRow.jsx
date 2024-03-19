@@ -45,12 +45,12 @@ const [isAddOpen , setIsAddOpen] = useState(false)
                  </span>
                 </td>
                 <td>
-                    <button onClick={() => setIsAddOpen((prev) => !prev)}>
-                        <MdAssignmentAdd className='size-5 text-sky-500'/>
+                    <button className='disabled:text-secondary-500 disabled:cursor-not-allowed text-sky-500' disabled={status === "CLOSED"} onClick={() => setIsAddOpen((prev) => !prev)}>
+                        <MdAssignmentAdd className='size-5'/>
                     </button>
                     {/* Add Modal */}
                     <Modal open={isAddOpen} title={`درخواست انجام ${title}`} OnCloseHandler={() => setIsAddOpen((prev) => !prev)}>
-                        <CreateProposal projectID={_id} OnCloseHandler={() => setIsAddOpen((prev) => !prev)}/>
+                        <CreateProposal projectId={_id} OnCloseHandler={() => setIsAddOpen((prev) => !prev)}/>
                     </Modal>
 
                 </td>

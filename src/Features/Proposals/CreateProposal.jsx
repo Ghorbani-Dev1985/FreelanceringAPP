@@ -5,16 +5,17 @@ import Loading from '../../UI/Loading'
 import useCreateProposal from './useCreateProposal'
 
 
-const CreateProposal = ({OnCloseHandler , projectID}) => {
-    const {handleSubmit, register , formState , errors} = useForm()
+const CreateProposal = ({OnCloseHandler , projectId }) => {
+    const {handleSubmit, register , formState: {errors , isValid} , reset} = useForm({
+        mode: "all"
+    })
+
    const {isCreating , createProposal} = useCreateProposal()
     const AddNewProposalHandler = (data) => {
-        console.log(data)
-        // const newProposal = {...data , projectID}
-        // createProposal(newProposal , {onSuccess:() => {
-        //     OnCloseHandler();
-        //      reset();
-        //     }})
+        createProposal({...data , projectId} , {onSuccess:() => {
+            OnCloseHandler();
+             reset();
+            }})
     }
   return (
     <>
@@ -48,7 +49,7 @@ const CreateProposal = ({OnCloseHandler , projectID}) => {
         } errors={errors} />
         {
             isCreating ? <Loading /> :
-        <button type='submit' className='btn btn-primary w-full'>افزودن</button>
+        <button type='submit' disabled={!isValid} className='btn btn-primary w-full'>افزودن</button>
         }
     </form>
     </>

@@ -21,18 +21,17 @@ const options =[
     }
 ]
 
-const ChangeProposalStatus = ({proposalID , OnCloseHandler}) => {
-    const {id : projectID} = useParams()
+const ChangeProposalStatus = ({proposalId , OnCloseHandler}) => {
+    const {id : projectId} = useParams()
     const {register , handleSubmit} = useForm()
     const {isUpdating , changeProposalStatus} = useChangeProposalStatus()
     const queryClient = useQueryClient()
-    console.log(projectID)
     const ChangeStatusHandler = (data) => {
-        changeProposalStatus({projectID , id: proposalID , data} , 
+        changeProposalStatus({projectId , proposalId , ...data} , 
             {
                 onSuccess: () => {
                     OnCloseHandler()
-                    queryClient.invalidateQueries({queryKey: ["project", projectID]})
+                    queryClient.invalidateQueries({queryKey: ["project", projectId]})
                 }
             })
     }

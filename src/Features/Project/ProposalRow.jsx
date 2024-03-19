@@ -55,7 +55,7 @@ const [isStatusOpen , setIsStatusOpen] = useState(false)
                     </button>
                     {/* Edit Modal */}
                     <Modal open={isStatusOpen} title="تغییر وضعیت درخواست" OnCloseHandler={() => setIsStatusOpen((prev) => !prev)}>
-                       <ChangeProposalStatus proposalID={_id} OnCloseHandler={() => setIsStatusOpen((prev) => !prev)}/>
+                       <ChangeProposalStatus proposalId={_id} OnCloseHandler={() => setIsStatusOpen((prev) => !prev)}/>
                     </Modal>
                     </div>
                 </td>
