@@ -9,7 +9,7 @@ import { ToPersianNumbersWithComma } from '../../Services/ToPersianNumbersWithCo
 const ProjectsTable = () => {
     const {isLoading , projects} = useOwnerProjects()
     if(isLoading) return <Loading />
-    if(projects.length) return <EmptyAlert text="تا حالا پروژه ای ثبت نشده" />
+    if(projects.length) return <EmptyAlert text="پروژه‌ای یافت نشد" />
   return (
     <div>
 

@@ -22,7 +22,7 @@ const {removeProject , isDeleting} = useRemoveProject()
 
     <React.Fragment key={_id}>
       <Table.Row>
-      <tr className={`${status === "OPEN" ? "bg-emerald-50 dark:bg-secondary-300" : "bg-primary-100/50"} text-center border-b text-secondary-700 hover:bg-slate-200 dark:hover:bg-secondary-500 px-6 py-4 transition-colors`}>
+      <tr className={`${status === "OPEN" ? "bg-emerald-50 dark:bg-secondary-300" : "bg-primary-50/50"} text-center border-b text-secondary-700 hover:bg-slate-200 dark:hover:bg-secondary-500 px-6 py-4 transition-colors`}>
                 <th className="px-6 py-4">
                     {index + 1}
                 </th>
