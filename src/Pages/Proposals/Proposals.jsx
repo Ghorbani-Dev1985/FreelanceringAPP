@@ -1,10 +1,11 @@
 import React from 'react'
 import ProposalsTable from '../../Features/Proposals/ProposalsTable'
+import ComponentTitle from '../../UI/ComponentTitle'
 
 const Proposals = () => {
   return (
     <>
-    <h2 className='font-MorabbaBold text-2xl mb-8'>درخواست‌های شما</h2>
+    <ComponentTitle title="درخواست‌های شما" />
     <ProposalsTable />
     </>
   )

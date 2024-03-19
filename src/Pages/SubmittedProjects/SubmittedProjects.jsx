@@ -1,8 +1,13 @@
 import React from 'react'
+import ProjectHeader from '../../Features/Freelancer/Project/ProjectHeader'
+import ProjectTable from '../../Features/Freelancer/Project/ProjectTable'
 
 const SubmittedProjects = () => {
   return (
-    <div>SubmittedProjects</div>
+    <>
+    <ProjectHeader />
+    <ProjectTable />
+    </>
   )
 }
 

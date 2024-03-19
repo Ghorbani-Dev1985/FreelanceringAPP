@@ -9,6 +9,7 @@ import {AuthLayout} from "./AuthContainer"
 import CompleteProfileImg from "./../../Assets/Images/CompleteProfile/completeProfile.png"
 import { useForm } from 'react-hook-form'
 import RadioInputGroup from '../../UI/RadioInputGroup'
+import ComponentTitle from '../../UI/ComponentTitle'
 
 const CompleteProfileForm = () => {
     const {handleSubmit , register , watch , formState: {errors} } = useForm()
@@ -37,7 +38,7 @@ const CompleteProfileForm = () => {
     <>
     <section className='flex h-screen'>
     <AuthLayout imgSrc={CompleteProfileImg} title="پروفایل خودتو تکمیل کن" subTitle="این کار و که انجام بدی مشخص میشه که کارفرما هستی یا فریلنسر تا بتونی از قابلیت های اپ کاملا استفاده کنی پس همین الان فرم رو تکمیلش کن">
-        <div className='flex-center my-4'><h2 className='font-MorabbaBold text-2xl mb-8'>تکمیل اطلاعات کاربری</h2></div>   
+        <div className='flex-center my-4'><ComponentTitle title="تکمیل اطلاعات کاربری" /> </div>   
         <form onSubmit={handleSubmit(CompleteProfileHandler)} className='space-y-4'>
         <TextField label=" نام و نام خانوادگی" name="name" register={register} placeholder=" لطفا نام و نام خانوادگی خودتو وارد کن" 
         validationSchema={

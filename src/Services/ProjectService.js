@@ -23,3 +23,7 @@ export function ToggleProjectStatusApi({id , data}){
 export function GetProjectApi(id){
     return Http.get(`/project/${id}`).then(({data}) => data.data)
 }
+
+export function GetAllProjectsApi(){
+    return Http.get('/project/list').then(({data}) => data.data)
+}
