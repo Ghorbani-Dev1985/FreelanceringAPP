@@ -1,8 +1,9 @@
 import React from 'react'
+import Dashboard from '../../Features/Freelancer/Dashboard'
 
 const FreelancerDashboard = () => {
   return (
-    <div>FreelancerDashboard</div>
+    <><Dashboard /></>
   )
 }
 

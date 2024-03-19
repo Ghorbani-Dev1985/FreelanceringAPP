@@ -1,11 +1,11 @@
 import React from 'react'
-import Stat from './Stat'
+import Stat from './../../UI/Stat'
 import { IoIosPaper, IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { HiMiniSquares2X2 } from 'react-icons/hi2';
 
 const Stats = ({projects}) => {
   const NumOfProjects = projects.length
-  const NumOfAcceptedProjects = projects.map(project => project.status === 2).length
+  const NumOfAcceptedProjects = projects.filter(project => project.status === 2).length
   const NumOfProposals = projects.reduce((acc , curr) => curr.proposals.length + acc ,0)
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
