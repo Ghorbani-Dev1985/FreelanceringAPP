@@ -3,11 +3,10 @@ import React, { useState } from 'react'
 import { ToPersianNumbersWithComma } from '../../../Utils/ToPersianNumbersWithComma'
 import ToLocalDateStringShort from '../../../Utils/ToLocalDateStringShort'
 import TruncateText from '../../../Utils/TruncateText'
-import { TbPencilMinus } from "react-icons/tb";
-import { HiEye, HiOutlineTrash } from "react-icons/hi";
 import Modal from '../../../UI/Modal'
 import Table from '../../../UI/Table';
 import { MdAssignmentAdd } from "react-icons/md";
+import CreateProposal from '../../Proposals/CreateProposal'
 
 const projectStatus = {
     OPEN : {
@@ -22,8 +21,7 @@ const projectStatus = {
 
 const ProjectRow = ({project , index}) => {
 const {_id , title , budget , deadline , status} = project
-const [isEditOpen , setIsEditOpen] = useState(false)
-const [isDeleteOpen , setIsDeleteOpen] = useState(false)
+const [isAddOpen , setIsAddOpen] = useState(false)
   return (
 
     <React.Fragment key={_id}>
@@ -47,23 +45,14 @@ const [isDeleteOpen , setIsDeleteOpen] = useState(false)
                  </span>
                 </td>
                 <td>
-                    <button>
+                    <button onClick={() => setIsAddOpen((prev) => !prev)}>
                         <MdAssignmentAdd className='size-5 text-sky-500'/>
                     </button>
-                    {/* <div className='flex-center gap-x-4'>
-                    <button onClick={() => setIsEditOpen((prev) => !prev)}>
-                    <TbPencilMinus className='size-5 text-sky-500'/>
-                    </button> */}
-                    {/* Edit Modal */}
-                    {/* <Modal open={isEditOpen} title={`ویرایش ${title}`} OnCloseHandler={() => setIsEditOpen((prev) => !prev)}>
-                        <CreateProjectForm ProjectToEdit={project} OnCloseHandler={() => setIsEditOpen((prev) => !prev)}/>
+                    {/* Add Modal */}
+                    <Modal open={isAddOpen} title={`درخواست انجام ${title}`} OnCloseHandler={() => setIsAddOpen((prev) => !prev)}>
+                        <CreateProposal projectID={_id} OnCloseHandler={() => setIsAddOpen((prev) => !prev)}/>
                     </Modal>
-                    <button onClick={() => setIsDeleteOpen((prev) => !prev)}>
-                    <HiOutlineTrash className='size-5 text-rose-500'/>
-                    </button> */}
-                    {/* Delete Modal */}
-                    {/* <ConfirmDelete open={isDeleteOpen} resourceName={title} title={`حذف ${title}`} OnCloseHandler={() => setIsDeleteOpen((prev) => !prev)} OnConfirmHandler={() => removeProject(_id , {onSuccess: () => setIsDeleteOpen((prev) => !prev)})} disabled={false} />
-                    </div> */}
+
                 </td>
 
                 </tr>
