@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form'
 
 
 const AuthContainer = () => {
-    const [step , setStep] = useState(2)
+    const [step , setStep] = useState(1)
    const {handleSubmit , register , getValues} = useForm()
     const {isPending : isPendingOtp, error, data: OtpResponse, mutateAsync} = useMutation({
         mutationFn: GetOtp,

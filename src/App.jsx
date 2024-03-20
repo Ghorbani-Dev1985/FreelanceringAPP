@@ -15,6 +15,9 @@ import Proposals from "./Pages/Proposals/Proposals.jsx";
 import SubmittedProjects from "./Pages/SubmittedProjects/SubmittedProjects.jsx";
 import FreelancerLayout from "./Features/Freelancer/FreelancerLayout.jsx";
 import ProtectedRoute from "./UI/ProtectedRoute.jsx";
+import NotAccess from './Pages/NotAccess/NotAccess.jsx'
+import AdminLayout from "./Features/Admin/AdminLayout.jsx";
+import AdminDashboard from './Pages/AdminDashboard/AdminDashboard.jsx'
 
 const queryClient = new QueryClient();
 
@@ -27,6 +30,11 @@ function App() {
           <Routes>
             <Route path="/auth" element={<Auth />} />
             <Route path="/completeProfile" element={<CompleteProfile />} />
+            <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+              <Route index element={<Navigate to="dashboard" replace />} />
+              <Route path="dashboard" element={<AdminDashboard />} />
+            
+            </Route>
             <Route path="/owner" element={<ProtectedRoute><OwnerLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="dashboard" replace />} />
               <Route path="dashboard" element={<OwnerDashboard />} />
@@ -40,6 +48,7 @@ function App() {
               <Route path="projects" element={<SubmittedProjects />} />
             </Route>
             <Route path="/" element={<Home />} />
+            <Route path="/notAccess" element={<NotAccess />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </QueryClientProvider>

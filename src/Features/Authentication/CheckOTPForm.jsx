@@ -11,7 +11,7 @@ import Loading from '../../UI/Loading'
 const RESEND_TIME = 90
 
 const CheckOTPForm = ({phoneNumber , OnBackHandler , ResendOtpHandler , OtpResponse}) => {
-  const [otp , setOtp] = useState(232613)
+  const [otp , setOtp] = useState("")
   const [time , setTime] = useState(RESEND_TIME)
   const navigate = useNavigate()
   const {isPending , error , data , mutateAsync} = useMutation({
@@ -29,6 +29,7 @@ const CheckOTPForm = ({phoneNumber , OnBackHandler , ResendOtpHandler , OtpRespo
         }
      if(user.role === "OWNER") return navigate("/owner")
      if(user.role === "FREELANCER") return navigate("/freelancer")
+     if(user.role === "ADMIN") return navigate("/admin")
     }catch(error) {
       
       toast.error(error?.response?.data?.message)

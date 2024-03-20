@@ -13,6 +13,7 @@ export default function useAuthorize(){
     owner: "OWNER"
    }
    const desiredRole = pathname.split("/").at(1)
+   console.log(desiredRole , pathname)
    if(Object.keys(ROLES).includes(desiredRole)){
     if(user && user.role === ROLES[desiredRole]) isAuthorized = true
    }

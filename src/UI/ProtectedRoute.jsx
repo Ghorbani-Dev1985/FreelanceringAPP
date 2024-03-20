@@ -10,7 +10,7 @@ const ProtectedRoute = ({children}) => {
     if(!isAuthenticated && !isLoading) navigate('/auth' , {replace: true})
     if(!isAuthorized && !isLoading) navigate('/notAccess' , {replace: true})
   }, [isAuthenticated , isAuthorized , isLoading , navigate])
-if(isLoading) return <div className='flex-center h-screen bg-gray-100'><Loading /></div>
+if(isLoading) return (<div className='flex-center h-screen bg-gray-100'><Loading /></div>)
  if(isAuthenticated && isAuthorized) return children
 }
 
