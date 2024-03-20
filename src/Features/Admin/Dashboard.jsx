@@ -4,17 +4,17 @@ import Stats from './Stats'
 import Loading from '../../UI/Loading'
 import useAllProjects from '../../Hooks/useAllProjects'
 import useProposals from '../Proposals/useProposals'
+import useAllUsers from './useUsers'
 
 const Dashboard = () => {
-
-  const {projects} = useAllProjects()
-  const {proposals} = useProposals()
-  console.log(projects , proposals)
-  // if(isLoading) return <Loading />
+  const {isLoading: projectLoading , projects} = useAllProjects()
+  const {isLoading: proposalLoading , proposals} = useProposals()
+  const {isLoading: usersLoading , users} = useAllUsers()
+  if(projectLoading || proposalLoading || usersLoading) return <Loading />
   return (
     <>
     <DashboardHeader title=" گزارش فعالیت اپ" subTitle="ادمین میتونه از این بخش خلاصه گزارش اپ رو ببینه تا مدیریت خوبی رو روند کاری داشته باشه" />
-    <Stats projects={projects} proposals={proposals} />
+    <Stats projects={projects} proposals={proposals} users={users} />
     </>
   )
 }
