@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TextField from '../../UI/TextField'
 import { useMutation } from '@tanstack/react-query'
 import { CompleteProfile } from '../../Services/AuthService'
@@ -10,10 +10,12 @@ import CompleteProfileImg from "./../../Assets/Images/CompleteProfile/completePr
 import { useForm } from 'react-hook-form'
 import RadioInputGroup from '../../UI/RadioInputGroup'
 import ComponentTitle from '../../UI/ComponentTitle'
+import useUser from './useUser'
 
 const CompleteProfileForm = () => {
     const {handleSubmit , register , watch , formState: {errors} } = useForm()
     const navigate = useNavigate()
+    const {user} = useUser()
    const {mutateAsync , isPending} = useMutation({
         mutationFn: CompleteProfile
     })
@@ -34,6 +36,9 @@ const CompleteProfileForm = () => {
           toast.error(error?.response?.data?.message)
         }
     }
+    useEffect(()=>{
+      if(user) navigate("/" , {replace: true})
+     },[user])
   return (
     <>
     <section className='flex h-screen'>

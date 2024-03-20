@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import SendOTPForm from './SendOPTForm'
 import CheckOTPForm from './CheckOTPForm'
 import CenterLogin from './../../Assets/Images/Login/centerLogin.png'
@@ -6,11 +6,15 @@ import toast from 'react-hot-toast'
 import { useMutation } from '@tanstack/react-query'
 import { GetOtp } from '../../Services/AuthService'
 import { useForm } from 'react-hook-form'
+import useUser from './useUser'
+import { useNavigate } from 'react-router-dom'
 
 
 const AuthContainer = () => {
+    const navigate = useNavigate()
     const [step , setStep] = useState(1)
    const {handleSubmit , register , getValues} = useForm()
+    const {user} = useUser()
     const {isPending : isPendingOtp, error, data: OtpResponse, mutateAsync} = useMutation({
         mutationFn: GetOtp,
       })
@@ -24,6 +28,9 @@ const AuthContainer = () => {
           toast.error(error?.response?.data?.message)
         }
       }
+      useEffect(()=>{
+       if(user) navigate("/" , {replace: true})
+      },[user])
     const RenderStep = () => {
         switch (step) {
             case 1:

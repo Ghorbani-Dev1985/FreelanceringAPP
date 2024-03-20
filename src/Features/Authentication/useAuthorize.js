@@ -6,6 +6,8 @@ export default function useAuthorize(){
    const {pathname} = useLocation()
    let isAuthenticated = false
    if(user) isAuthenticated = true
+   let isVerified = false
+   if(user && Number(user.status) === 2) isVerified = true
    let isAuthorized = false
    const ROLES = {
     admin: "ADMIN",
@@ -17,5 +19,5 @@ export default function useAuthorize(){
    if(Object.keys(ROLES).includes(desiredRole)){
     if(user && user.role === ROLES[desiredRole]) isAuthorized = true
    }
-   return {isLoading , isAuthenticated , isAuthorized , user}
+   return {isLoading , isAuthenticated , isAuthorized , user , isVerified}
 }

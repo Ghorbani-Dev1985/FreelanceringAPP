@@ -5,7 +5,7 @@ import ComponentTitle from '../../UI/ComponentTitle'
 const Proposals = () => {
   return (
     <>
-    <ComponentTitle title="درخواست‌های شما" />
+    <ComponentTitle title=" لیست درخواست‌ها" />
     <ProposalsTable />
     </>
   )
