@@ -9,6 +9,6 @@ export function CreateCategoryApi(data){
     return Http.post('/admin/category/add' , data).then(({data}) => data.data)
 }
 
-export function EditCategoryApi(id , data){
+export function EditCategoryApi({id , data}){
     return Http.patch(`/admin/category/update/${id}` , data).then(({data}) => data.data)
 }

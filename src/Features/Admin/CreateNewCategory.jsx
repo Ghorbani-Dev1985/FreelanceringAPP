@@ -13,7 +13,6 @@ const CreateNewCategory = ({OnCloseHandler , CategoryToEdit = {}}) => {
   let editValues = {}
   if(isEditSession){
     editValues = {
-        id: value,
         title: label,
         description: desc,
         englishTitle: enTitle,
@@ -24,7 +23,6 @@ const CreateNewCategory = ({OnCloseHandler , CategoryToEdit = {}}) => {
   const {isUpdating , editCategory} = useEditCategory()
   const AddNewCategoryHandler = (data) => {
     if(isEditSession){
-        console.log(editId)
         editCategory({id: editId , data} , {onSuccess: () => {
         OnCloseHandler();
          reset();

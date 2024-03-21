@@ -12,7 +12,6 @@ export default function useCategories(){
         value: item._id,
         desc: item.description,
         enTitle: item.englishTitle,
-        type: item.type
     }))
     const transformedCategories = rawCategories.map((item) => ({
         label: item.title,
