@@ -19,6 +19,7 @@ import NotAccess from './Pages/NotAccess/NotAccess.jsx'
 import AdminLayout from "./Features/Admin/AdminLayout.jsx";
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard.jsx'
 import Users from "./Pages/Users/Users.jsx";
+import Categories from "./Pages/Categories/Categories.jsx";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ function App() {
               <Route path="users" element={<Users />} />
               <Route path="projects" element={<SubmittedProjects />} />
               <Route path="proposals" element={<Proposals />} />
+              <Route path="categories" element={<Categories />} />
             </Route>
             <Route path="/owner" element={<ProtectedRoute><OwnerLayout /></ProtectedRoute>}>
               <Route index element={<Navigate to="dashboard" replace />} />

@@ -3,7 +3,7 @@ import AppLayout from '../../UI/AppLayout'
 import AppSidebar from '../../UI/AppSidebar'
 import { NavLink } from 'react-router-dom';
 import { HiOutlineHome } from 'react-icons/hi';
-import { BiListCheck } from 'react-icons/bi';
+import { BiCategory, BiListCheck } from 'react-icons/bi';
 import { HiListBullet, HiOutlineUserGroup } from 'react-icons/hi2';
 
 
@@ -31,6 +31,13 @@ const menuItems = [
     to: "proposals",
     icon: <BiListCheck />,
     text: "درخواست‌ها",
+  },
+
+  {
+    id: 5,
+    to: "categories",
+    icon: <BiCategory />,
+    text: "دسته‌بندی‌ها",
   },
 ];
 

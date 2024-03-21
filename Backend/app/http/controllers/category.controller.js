@@ -23,15 +23,13 @@ class CategoryController extends Controller {
   }
   async addNewCategory(req, res) {
     console.log(req.body);
-    const { title, englishTitle, description, type, parent } =
+    const { title, englishTitle, description, } =
       await addCategorySchema.validateAsync(req.body);
     await this.findCategoryWithTitle(englishTitle);
     const category = await CategoryModel.create({
       title,
       englishTitle,
       description,
-      type,
-      parent,
     });
 
     if (!category) throw createHttpError.InternalServerError("خطای داخلی");
@@ -55,13 +53,13 @@ class CategoryController extends Controller {
   }
   async updateCategory(req, res) {
     const { id } = req.params;
-    const { title, englishTitle, type, description } = req.body;
+    const { title, englishTitle, description } = req.body;
     await this.checkExistCategory(id);
     await updateCategorySchema.validateAsync(req.body);
     const updateResult = await CategoryModel.updateOne(
       { _id: id },
       {
-        $set: { title, englishTitle, type, description },
+        $set: { title, englishTitle, description },
       }
     );
     if (updateResult.modifiedCount == 0)

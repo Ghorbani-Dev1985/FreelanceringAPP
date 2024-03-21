@@ -88,7 +88,7 @@ const CreateProjectForm = ({OnCloseHandler , ProjectToEdit = {}}) => {
         <DatePickerField label="تاریخ ددلاین" date={date} setDate={setDate}/>
         {
             isCreating || isEditing ? <Loading /> :
-        <button type='submit' disabled={!isValid} className='btn btn-primary w-full'>افزودن</button>
+        <button type='submit' disabled={!isValid} className='btn btn-primary w-full'>ثبت</button>
         }
     </form>
   )
