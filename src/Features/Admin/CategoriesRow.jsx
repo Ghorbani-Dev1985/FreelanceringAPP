@@ -3,6 +3,9 @@ import Table from '../../UI/Table';
 import Modal from '../../UI/Modal';
 import CreateNewCategory from './CreateNewCategory';
 import { TbPencilMinus } from "react-icons/tb";
+import { HiOutlineTrash } from 'react-icons/hi';
+import ConfirmDelete from '../../UI/ConfirmDelete';
+import useRemoveCategory from './useRemoveCategory'
 
 const userStatus = {
     0 : {
@@ -22,6 +25,8 @@ const userStatus = {
 const ProjectRow = ({category , index}) => {
 const { label , value , desc , enTitle} = category
 const [isNewOpen , setIsNewOpen] = useState(false)
+const [isDeleteOpen , setIsDeleteOpen] = useState(false)
+ const {isDeleting , removeCategory} = useRemoveCategory()
   return (
 
     <React.Fragment key={value}>
@@ -40,13 +45,20 @@ const [isNewOpen , setIsNewOpen] = useState(false)
                     {desc}
                 </td>
                 <td>
+                    <div className='flex-center gap-x-4'>
                 <button className='disabled:text-secondary-500 disabled:cursor-not-allowed text-sky-500' onClick={() => setIsNewOpen((prev) => !prev)}>
-                    <TbPencilMinus className='size-6'/></button>
+                    <TbPencilMinus className='size-5'/></button>
         
                     {/* Edit Modal */}
                     <Modal open={isNewOpen} title={` ویرایش دسته‌بندی‌ ${label}`} OnCloseHandler={() => setIsNewOpen((prev) => !prev)}>
                         <CreateNewCategory CategoryToEdit={category} OnCloseHandler={() => setIsNewOpen((prev) => !prev)}/>
                     </Modal>
+                    <button onClick={() => setIsDeleteOpen((prev) => !prev)}>
+                    <HiOutlineTrash className='size-5 text-rose-500'/>
+                    </button>
+                    {/* Delete Modal */}
+                    <ConfirmDelete open={isDeleteOpen} resourceName={label} title={`حذف ${label}`} OnCloseHandler={() => setIsDeleteOpen((prev) => !prev)} OnConfirmHandler={() => removeCategory(value , {onSuccess: () => setIsDeleteOpen((prev) => !prev)})} disabled={false} />
+                    </div>
 
                 </td>
 
