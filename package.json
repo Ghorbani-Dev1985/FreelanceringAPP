@@ -34,7 +34,8 @@
     "styled-components": "^6.1.8",
     "stylis-plugin-rtl": "^2.1.1",
     "sweetalert2": "^11.10.6",
-    "swiper": "^11.0.7"
+    "swiper": "^11.0.7",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
