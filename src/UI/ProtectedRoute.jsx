@@ -8,7 +8,8 @@ const ProtectedRoute = ({children}) => {
     const navigate = useNavigate()
   const {isAuthenticated , isAuthorized , isLoading , isVerified} = useAuthorize()
   useEffect(() => {
-    if(!isAuthenticated && !isLoading) navigate('/auth' , {replace: true})
+    console.log(isAuthenticated , !isLoading)
+    if(!isAuthenticated) navigate('/auth' , {replace: true})
     if(!isVerified && !isLoading) {
       toast.error("پروفایلت هنوز تایید نشده")
       navigate('/' , {replace: true})

@@ -89,7 +89,7 @@
     @apply p-0 m-0 box-border;
   }
   body {          
-    @apply text-secondary-600 dark:text-white bg-gray-100 dark:bg-gray-900 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
+    @apply text-secondary-600 dark:text-white bg-secondary-0 h-full font-Dana text-lg overflow-x-hidden scroll-smooth scrollbar scrollbar-thumb-primary-500 dark:scrollbar-thumb-primary-300 scrollbar-track-gray-100 dark:scrollbar-track-gray-400;
   }
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {

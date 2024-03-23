@@ -54,7 +54,7 @@ export default AuthContainer
 const AuthLayout = ({children , imgSrc , title , subTitle}) => {
     return(
         <>
-        <div className='h-full w-full lg:w-[30%] lg:bg-gray-100 bg-gray-100 flex-center lg:justify-end'>
+        <div className='h-full w-full lg:w-[30%] lg:bg-secondary-0 bg-secondary-0 flex-center lg:justify-end'>
             <div className='w-full max-w-sm lg:ml-[-200px] z-20 relative'><div className='bg-white rounded-2xl p-8 w-full'>{children}</div></div>
         </div>
             <div className='hidden lg:block h-full w-[70%] rounded-tr-4xl rounded-br-4xl z-0 bg-gradient-to-tr from-primary-900 to-primary-800'>
