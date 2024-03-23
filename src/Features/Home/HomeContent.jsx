@@ -4,7 +4,8 @@ import Typewriter from 'typewriter-effect';
 import HomeBanner from '../../Assets/Images/Home/homeBanner.png'
 const HomeContent = () => {
   return (
-    <search className='flex flex-col md:flex-between md:flex-row gap-x-8 my-36'>
+    <search className='flex flex-col md:flex-between md:flex-row gap-x-8 my-36 relative'>
+       <div className="dark:hidden hidden md:block w-[500px] h-[500px] lg:w-[630px] lg:h-[630px] bg-pink-300/20 blur-2xl rounded-full -z-10 absolute -left-64 -top-60"></div>
         <div className='flex flex-1'>
             <div className='flex flex-col'>
         <h2 className="font-MorabbaBold text-5xl block mb-8 mb:mb-0 h-48 lg:text-6xl text-primary-900 dark:text-white leading-[80px] lg:leading-[96px]">
@@ -34,6 +35,7 @@ const HomeContent = () => {
         <div className='flex flex-1'>
          <img src={HomeBanner} alt='ghorbani-dev.ir' />
         </div>
+        <div className="dark:hidden hidden md:block w-[500px] h-[500px] lg:w-[630px] lg:h-[630px] bg-sky-500/20 blur-2xl rounded-full -z-10 absolute -right-[320px] lg:-right-[300px] top-0"></div>
     </search>
   )
 }
