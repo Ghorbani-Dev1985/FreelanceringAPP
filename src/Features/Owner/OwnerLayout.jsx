@@ -19,12 +19,6 @@ const menuItems = [
     icon: <BiListUl />,
     text: "پروژه ها",
   },
-  {
-    id: 3,
-    to: "project",
-    icon: <BiFolderOpen />,
-    text: "پروژه",
-  },
 ];
 
 
