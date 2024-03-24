@@ -20,7 +20,7 @@
 </div>
 <div align="center">
 <img  src="./src/Assets/Images/ScreenShots/owner-1.png" width="49%" alt="ghorbani-dev.ir"/>
-<img  src="./src/Assets/Images/ScreenShots/owner-2.pngg" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/owner-2.png" width="49%" alt="ghorbani-dev.ir"/>
 </div>
 <div align="center">
 <img  src="./src/Assets/Images/ScreenShots/Freelancers-1.png" width="49%" alt="ghorbani-dev.ir"/>
@@ -61,7 +61,7 @@ Fullstack app with NodeJS, MongoDB, ReactJS, TailwindCss
 <li>Freelancer can filter projects</li>
 <li>Freelancer can add new proposal for projects</li>
 <li>Freelancer can see all proposals</li>
-<li>Dark mode<li>
+<li>Dark mode</li>
 </ul>
 
 ---
