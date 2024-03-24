@@ -6,18 +6,18 @@ import { HiOutlineHome } from 'react-icons/hi';
 import { BiFolderOpen, BiListUl } from 'react-icons/bi';
 
 
-const menuItems = [
+export const ownerMenuItems = [
   {
     id: 1,
-    to: "dashboard",
+    link: "dashboard",
     icon: <HiOutlineHome />,
-    text: "نمای کلی",
+    title: "نمای کلی",
   },
   {
     id: 2,
-    to: "projects",
+    link: "projects",
     icon: <BiListUl />,
-    text: "پروژه ها",
+    title: "پروژه ها",
   },
 ];
 
@@ -30,11 +30,11 @@ const OwnerLayout = () => {
         <AppSidebar>
        {/* Navlinks */}
       <div className="w-full space-y-6 font-DanaBold">
-        {menuItems.map(({ id, to, icon, text }) => {
+        {ownerMenuItems.map(({ id, link, icon, title }) => {
           return (
             <React.Fragment key={id}>
               <NavLink 
-                to={to}
+                to={link}
                 className={({ isActive }) =>
                   isActive
                     ? `bg-primary-900 text-white hover:bg-primary-800 ${navlinkClasses}`
@@ -42,7 +42,7 @@ const OwnerLayout = () => {
                 }
               >
                 {icon}
-                {text}
+                {title}
               </NavLink>
             </React.Fragment>
           );

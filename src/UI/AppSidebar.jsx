@@ -8,7 +8,7 @@ import { useDarkMode } from "../Context/DarkModeContext";
 const AppSidebar = ({children}) => {
   const {isDarkMode} = useDarkMode()
   return (
-    <aside className="flex flex-col items-center row-start-1 row-span-2 p-4">
+    <aside className="hidden md:flex flex-col items-center row-start-1 row-span-2 p-4">
       {
         isDarkMode ? 
         <img 

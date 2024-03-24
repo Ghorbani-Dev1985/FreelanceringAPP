@@ -7,37 +7,37 @@ import { BiCategory, BiListCheck } from 'react-icons/bi';
 import { HiListBullet, HiOutlineUserGroup } from 'react-icons/hi2';
 
 
-const menuItems = [
+export const adminMenuItems = [
   {
     id: 1,
-    to: "dashboard",
+    link: "dashboard",
     icon: <HiOutlineHome />,
-    text: "نمای کلی",
+    title: "نمای کلی",
   },
   {
     id: 2,
-    to: "users",
+    link: "users",
     icon: <HiOutlineUserGroup />,
-    text: "کاربرها",
+    title: "کاربرها",
   },
   {
     id: 3,
-    to: "projects",
+    link: "projects",
     icon: <HiListBullet />,
-    text: "پروژه‌ها",
+    title: "پروژه‌ها",
   },
   {
     id: 4,
-    to: "proposals",
+    link: "proposals",
     icon: <BiListCheck />,
-    text: "درخواست‌ها",
+    title: "درخواست‌ها",
   },
 
   {
     id: 5,
-    to: "categories",
+    link: "categories",
     icon: <BiCategory />,
-    text: "دسته‌بندی‌ها",
+    title: "دسته‌بندی‌ها",
   },
 ];
 
@@ -50,11 +50,11 @@ const AdminLayout = () => {
         <AppSidebar>
        {/* Navlinks */}
       <div className="w-full space-y-6 font-DanaBold">
-        {menuItems.map(({ id, to, icon, text }) => {
+        {adminMenuItems.map(({ id, link, icon, title }) => {
           return (
             <React.Fragment key={id}>
               <NavLink 
-                to={to}
+                to={link}
                 className={({ isActive }) =>
                   isActive
                     ? `bg-primary-900 text-white hover:bg-primary-800 ${navlinkClasses}`
@@ -62,7 +62,7 @@ const AdminLayout = () => {
                 }
               >
                 {icon}
-                {text}
+                {title}
               </NavLink>
             </React.Fragment>
           );
