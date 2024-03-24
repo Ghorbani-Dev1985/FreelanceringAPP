@@ -1,33 +1,33 @@
 <p align="center">
   <a href="#">
-    <img  src="./src/assets/Images/Logo/logo.png" width="100" alt="ghorbani-dev.ir"/>
+    <img  src="./src/Assets/Images/Logo/logo.png" width="100" alt="ghorbani-dev.ir"/>
     <h2 align="center">Freelancers | فریلنسرز</h2>
   </a>
 </p>
 
 # Screen SHOTS
 <div align="center">
-<img  src="./src/assets/Images/ScreenShots/home.png" width="49%" alt="ghorbani-dev.ir"/>
-<img  src="./src/assets/Images/ScreenShots/admin-1.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/home.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/admin-1.png" width="49%" alt="ghorbani-dev.ir"/>
 </div>
 <div align="center">
-<img  src="./src/assets/Images/ScreenShots/admin-2.png" width="49%" alt="ghorbani-dev.ir"/>
-<img  src="./src/assets/Images/ScreenShots/admin-3.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/admin-2.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/admin-3.png" width="49%" alt="ghorbani-dev.ir"/>
 </div>
 <div align="center">
-<img  src="./src/assets/Images/ScreenShots/admin-4.png" width="49%" alt="ghorbani-dev.ir"/>
-<img  src="./src/assets/Images/ScreenShots/admin-5.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/admin-4.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/admin-5.png" width="49%" alt="ghorbani-dev.ir"/>
 </div>
 <div align="center">
-<img  src="./src/assets/Images/ScreenShots/owner-1.png" width="49%" alt="ghorbani-dev.ir"/>
-<img  src="./src/assets/Images/ScreenShots/owner-2.pngg" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/owner-1.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/owner-2.pngg" width="49%" alt="ghorbani-dev.ir"/>
 </div>
 <div align="center">
-<img  src="./src/assets/Images/ScreenShots/Freelancers-1.png" width="49%" alt="ghorbani-dev.ir"/>
-<img  src="./src/assets/Images/ScreenShots/Freelancers-2.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/Freelancers-1.png" width="49%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/Freelancers-2.png" width="49%" alt="ghorbani-dev.ir"/>
 </div>
 <div align="center">
-<img  src="./src/assets/Images/ScreenShots/Freelancers-3.png" width="100%" alt="ghorbani-dev.ir"/>
+<img  src="./src/Assets/Images/ScreenShots/Freelancers-3.png" width="100%" alt="ghorbani-dev.ir"/>
 </div>
 
 ---
